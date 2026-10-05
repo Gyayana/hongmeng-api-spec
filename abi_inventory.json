@@ -1,0 +1,8511 @@
+{
+ "meta": {
+  "uapi_headers": 197,
+  "cap_types": 21,
+  "numbered_op_tables": {
+   "AUDIT": 8,
+   "BOOTTRACE": 34,
+   "CACHE": 2,
+   "DCACHE": 5,
+   "ICACHE": 2,
+   "CAP": 9,
+   "ACTV": 64,
+   "NR": 2,
+   "VSPACE": 1,
+   "COPGSTR": 10,
+   "BITS": 2,
+   "CTRLMEM": 176,
+   "KOBJCOF": 6,
+   "CTRMMEM": 1,
+   "POLLLIST": 5,
+   "MISCDATA": 12,
+   "BASE": 1,
+   "AMUDATA": 1,
+   "GPDATA": 1,
+   "VREGION": 35,
+   "KOBJVS": 17,
+   "PCPINFO": 1,
+   "SYSCONF": 2,
+   "SYSPG": 16,
+   "NATIVE": 2,
+   "ARM": 1,
+   "HMV": 3,
+   "PM": 13,
+   "IOMEM": 4,
+   "EXT": 16,
+   "KBOX": 2,
+   "VIRQ": 4,
+   "HMK": 1,
+   "M": 1,
+   "LSYSCALL": 2,
+   "FUTEX": 29,
+   "UFUTEX": 1,
+   "HMPSF": 3,
+   "KVIC": 5,
+   "IOT": 2,
+   "HMSIGNAL": 3,
+   "SI": 6,
+   "FPE": 8,
+   "SIGNAL": 5,
+   "JITFORT": 4,
+   "KCOV": 2,
+   "KSYM": 1,
+   "LASTKLOG": 3,
+   "TAG": 1,
+   "MISCACCESS": 7,
+   "KSTACK": 1,
+   "KPGTBL": 1,
+   "PAGE": 5,
+   "PAC": 7,
+   "PERF": 6,
+   "PGSTR": 60,
+   "PGSTRSUPEROP": 2,
+   "PGSTRV": 3,
+   "CPUFREQ": 4,
+   "EM": 3,
+   "SCHED": 103,
+   "MIPS": 6,
+   "PHASE": 5,
+   "FFTS": 1,
+   "MSEC": 1,
+   "USEC": 1,
+   "NSEC": 1,
+   "TRIGGER": 1,
+   "LDK": 1,
+   "ULWT": 9,
+   "VNOTIFY": 8,
+   "EINJ": 6,
+   "PERF_PMU_CONFIG": 12,
+   "PERF_DSU_PMU_CONFIG": 4,
+   "SMMU": 22,
+   "WATCHDOG": 4
+  },
+  "lsyscall_count": 313,
+  "lsyscall_compat_count": 392,
+  "source": "hm-verif-kernel/kernel/include/mapi (官方开源合规包 UAPI)"
+ },
+ "capability_types": [
+  {
+   "name": "Activation",
+   "cap_id": 5,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Init",
+    "Ready",
+    "Recycle",
+    "Kill",
+    "LoadActvUctx",
+    "LoadLastUctx",
+    "StoreLastUctx",
+    "HMSignalMask",
+    "TriggerDetachOne",
+    "AvailableExtFastcall",
+    "PacCtrl"
+   ],
+   "method_count": 11,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_WORKING",
+     "symbol": "E_HM_ACTIVATION_WORKING"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_INACTIVE",
+     "symbol": "E_HM_ACTIVATION_INACTIVE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_NOTINIT",
+     "symbol": "E_HM_ACTIVATION_NOTINIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_CRASH",
+     "symbol": "E_HM_ACTIVATION_CRASH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_STATE",
+     "symbol": "E_HM_ACTIVATION_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_BOUND",
+     "symbol": "E_HM_ACTIVATION_BOUND"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_EXP_NO_HANDLER",
+     "symbol": "E_HM_ACTIVATION_EXP_NO_HANDLER"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_WRONG_CHAIN",
+     "symbol": "E_HM_ACTIVATION_WRONG_CHAIN"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_RPC_RETRY",
+     "symbol": "E_HM_ACTIVATION_RPC_RETRY"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATION_NOT_ALLOW_REFWD",
+     "symbol": "E_HM_ACTIVATION_NOT_ALLOW_REFWD"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_activation.h"
+  },
+  {
+   "name": "ActivationPool",
+   "cap_id": 6,
+   "grant": [
+    "CAPCOARSEGRANT"
+   ],
+   "grant_move": [
+    "CAPCOARSEGRANTMOVE"
+   ],
+   "methods": [
+    "Call",
+    "NoBufCall",
+    "SendBufCall",
+    "RetBufCall",
+    "ReservedCall1",
+    "ReservedCall2",
+    "ReservedCall3",
+    "ReservedCall4",
+    "CompatCall",
+    "CompatNoBufCall",
+    "CompatSendBufCall",
+    "CompatRetBufCall",
+    "Bind",
+    "KillOne",
+    "Listen",
+    "ListenWater",
+    "CheckWater",
+    "SetWater",
+    "SetCredential",
+    "EmrgInit",
+    "SetSchedInfo",
+    "MiscdataRead",
+    "MiscdataWrite",
+    "Join",
+    "PacCtrl"
+   ],
+   "method_count": 25,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NEED_RREF",
+     "symbol": "E_HM_ACTIVATIONPOOL_NEED_RREF"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_ALREADY_BOUND",
+     "symbol": "E_HM_ACTIVATIONPOOL_ALREADY_BOUND"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_INVAL_BIND_POINT",
+     "symbol": "E_HM_ACTIVATIONPOOL_INVAL_BIND_POINT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_UNBOUND",
+     "symbol": "E_HM_ACTIVATIONPOOL_UNBOUND"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NORES",
+     "symbol": "E_HM_ACTIVATIONPOOL_NORES"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_UNALLOC_BIND_POINT",
+     "symbol": "E_HM_ACTIVATIONPOOL_UNALLOC_BIND_POINT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_BIND_TO_SELF",
+     "symbol": "E_HM_ACTIVATIONPOOL_BIND_TO_SELF"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_PROXY_BIND_NODEFAULT",
+     "symbol": "E_HM_ACTIVATIONPOOL_PROXY_BIND_NODEFAULT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_INVOKE_PREALLOC_POOL",
+     "symbol": "E_HM_ACTIVATIONPOOL_INVOKE_PREALLOC_POOL"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_INVAL_REF_BIND_POINT",
+     "symbol": "E_HM_ACTIVATIONPOOL_INVAL_REF_BIND_POINT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NO_SELF_ACTV",
+     "symbol": "E_HM_ACTIVATIONPOOL_NO_SELF_ACTV"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_INVAL_DUPBIND",
+     "symbol": "E_HM_ACTIVATIONPOOL_INVAL_DUPBIND"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NO_WATER_TRIGGER",
+     "symbol": "E_HM_ACTIVATIONPOOL_NO_WATER_TRIGGER"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_CRED_ALREADY_DEFINED",
+     "symbol": "E_HM_ACTIVATIONPOOL_CRED_ALREADY_DEFINED"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_ALREADY_EMRG_INIT",
+     "symbol": "E_HM_ACTIVATIONPOOL_ALREADY_EMRG_INIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NOT_ALLOW_EMRG",
+     "symbol": "E_HM_ACTIVATIONPOOL_NOT_ALLOW_EMRG"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NEED_THREADS",
+     "symbol": "E_HM_ACTIVATIONPOOL_NEED_THREADS"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NO_NEED_THREADS",
+     "symbol": "E_HM_ACTIVATIONPOOL_NO_NEED_THREADS"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "ACTIVATIONPOOL_NO_FRAME",
+     "symbol": "E_HM_ACTIVATIONPOOL_NO_FRAME"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_activation_pool.h"
+  },
+  {
+   "name": "Channel",
+   "cap_id": 4,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "MsgReceive",
+    "MsgNotify"
+   ],
+   "method_count": 2,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_channel.h"
+  },
+  {
+   "name": "CNode",
+   "cap_id": 1,
+   "grant": [
+    "CAPCOARSEGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "CompatLLT",
+    "NewCap",
+    "DeleteCap",
+    "ExtendCTable",
+    "ExtendUTable",
+    "ExtendRTable",
+    "IterateCTableStart",
+    "IterateCTableNext",
+    "StatCap",
+    "SpawnCNode",
+    "Destroy",
+    "Require",
+    "Reject",
+    "Grant",
+    "Revoke",
+    "Export",
+    "AcceptGrant",
+    "IterateRTableStart",
+    "IterateRTableNext",
+    "IterateUTableStart",
+    "IterateUTableNext",
+    "CRef",
+    "GrantMove",
+    "StatRRef",
+    "StatURef",
+    "ProxyCall",
+    "ExportMove",
+    "AcceptMove",
+    "SetCLimit",
+    "GetCLimit",
+    "Stat",
+    "BindPermission",
+    "UnBindPermission",
+    "SetPermission",
+    "ExtFastcallBind",
+    "ExtFastcallUnbind",
+    "AuditContext",
+    "ULWTMonitorInit",
+    "ULWTMonitorDestroy",
+    "ULWTMonitorSynccallLock",
+    "ULWTMonitorSynccallUnlock",
+    "ULWTKinfoInit",
+    "ULWTKinfoDestroy",
+    "ULWTDomainPrioSeqUpdate"
+   ],
+   "method_count": 44,
+   "errnos": [
+    {
+     "kind": "EINVAL",
+     "code": "CNODE_INVAL_CNODE",
+     "symbol": "E_HM_CNODE_INVAL_CNODE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_UTBLSLOT_STATE",
+     "symbol": "E_HM_CNODE_UTBLSLOT_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_RTBLSLOT_STATE",
+     "symbol": "E_HM_CNODE_RTBLSLOT_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_TYPE",
+     "symbol": "E_HM_CNODE_TYPE"
+    },
+    {
+     "kind": "EAGAIN",
+     "code": "CNODE_CSPACE_FULL",
+     "symbol": "E_HM_CNODE_CSPACE_FULL"
+    },
+    {
+     "kind": "EAGAIN",
+     "code": "CNODE_CTABLE_GROW_LIMIT",
+     "symbol": "E_HM_CNODE_CTABLE_GROW_LIMIT"
+    },
+    {
+     "kind": "EAGAIN",
+     "code": "CNODE_UTABLE_GROW_LIMIT",
+     "symbol": "E_HM_CNODE_UTABLE_GROW_LIMIT"
+    },
+    {
+     "kind": "EAGAIN",
+     "code": "CNODE_RTABLE_GROW_LIMIT",
+     "symbol": "E_HM_CNODE_RTABLE_GROW_LIMIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_NEWCAP_TYPE",
+     "symbol": "E_HM_CNODE_NEWCAP_TYPE"
+    },
+    {
+     "kind": "ENOMEM",
+     "code": "CNODE_NO_CTBLSLOT",
+     "symbol": "E_HM_CNODE_NO_CTBLSLOT"
+    },
+    {
+     "kind": "ENOMEM",
+     "code": "CNODE_NO_UTBLSLOT",
+     "symbol": "E_HM_CNODE_NO_UTBLSLOT"
+    },
+    {
+     "kind": "ENOMEM",
+     "code": "CNODE_NO_RTBLSLOT",
+     "symbol": "E_HM_CNODE_NO_RTBLSLOT"
+    },
+    {
+     "kind": "EAGAIN",
+     "code": "CNODE_CTBLSLOT_LIMIT",
+     "symbol": "E_HM_CNODE_CTBLSLOT_LIMIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_WRONG_IDX",
+     "symbol": "E_HM_CNODE_WRONG_IDX"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_LOOKUP",
+     "symbol": "E_HM_CNODE_LOOKUP"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_LOOKUP_U",
+     "symbol": "E_HM_CNODE_LOOKUP_U"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_LOOKUP_R",
+     "symbol": "E_HM_CNODE_LOOKUP_R"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_CREF_FORMAT",
+     "symbol": "E_HM_CNODE_CREF_FORMAT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_RREF_FORMAT",
+     "symbol": "E_HM_CNODE_RREF_FORMAT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_UREF_FORMAT",
+     "symbol": "E_HM_CNODE_UREF_FORMAT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DESTROYING",
+     "symbol": "E_HM_CNODE_DESTROYING"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_INVOKE_METHOD",
+     "symbol": "E_HM_CNODE_INVOKE_METHOD"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_INVOKE_NORIGHT",
+     "symbol": "E_HM_CNODE_INVOKE_NORIGHT"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_INVOKE_NOGRANT",
+     "symbol": "E_HM_CNODE_INVOKE_NOGRANT"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_FORBID_GRANT",
+     "symbol": "E_HM_CNODE_FORBID_GRANT"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_FORBID_GRANTMOVE",
+     "symbol": "E_HM_CNODE_FORBID_GRANTMOVE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_GRANT_TOO_MANY",
+     "symbol": "E_HM_CNODE_GRANT_TOO_MANY"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_GRANT_PERM",
+     "symbol": "E_HM_CNODE_GRANT_PERM"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DELETING",
+     "symbol": "E_HM_CNODE_DELETING"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DEL_INVAL",
+     "symbol": "E_HM_CNODE_DEL_INVAL"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DEL_USED",
+     "symbol": "E_HM_CNODE_DEL_USED"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_CTABLE_NEED_EXTEND",
+     "symbol": "E_HM_CNODE_CTABLE_NEED_EXTEND"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_CTABLE_EXTEND_ENOUGH",
+     "symbol": "E_HM_CNODE_CTABLE_EXTEND_ENOUGH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_UTABLE_EXTEND_ENOUGH",
+     "symbol": "E_HM_CNODE_UTABLE_EXTEND_ENOUGH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_RTABLE_EXTEND_ENOUGH",
+     "symbol": "E_HM_CNODE_RTABLE_EXTEND_ENOUGH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DEL_CTABLE_STATE",
+     "symbol": "E_HM_CNODE_DEL_CTABLE_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DEL_UTABLE_STATE",
+     "symbol": "E_HM_CNODE_DEL_UTABLE_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_DEL_RTABLE_STATE",
+     "symbol": "E_HM_CNODE_DEL_RTABLE_STATE"
+    },
+    {
+     "kind": "EPERM",
+     "code": "CNODE_REDUCE_CAP_NORIGHT",
+     "symbol": "E_HM_CNODE_REDUCE_CAP_NORIGHT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_KOBJ_IN_USE",
+     "symbol": "E_HM_CNODE_KOBJ_IN_USE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "CNODE_NOT_ALLOW_RPC",
+     "symbol": "E_HM_CNODE_NOT_ALLOW_RPC"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_cnode.h"
+  },
+  {
+   "name": "CpuContext",
+   "cap_id": 10,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Config",
+    "AttachCPU",
+    "DetachCPU"
+   ],
+   "method_count": 3,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_cpucontext.h"
+  },
+  {
+   "name": "DsuContext",
+   "cap_id": 20,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Attach",
+    "Detach",
+    "Config"
+   ],
+   "method_count": 3,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_dsucontext.h"
+  },
+  {
+   "name": "EcChn",
+   "cap_id": 19,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [],
+   "method_count": 0,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_ec_chn.h"
+  },
+  {
+   "name": "EcEp",
+   "cap_id": 18,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Attach",
+    "Detach",
+    "SendEvent"
+   ],
+   "method_count": 3,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_ec_ep.h"
+  },
+  {
+   "name": "Epoll",
+   "cap_id": 22,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Ctl",
+    "Wakeup",
+    "Cleanup",
+    "FetchReadyFds",
+    "FetchListenFds",
+    "FetchStatistics",
+    "SetDebugValue",
+    "GetDebugValue"
+   ],
+   "method_count": 8,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_epoll.h"
+  },
+  {
+   "name": "FDTable",
+   "cap_id": 21,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "WakeupPoll",
+    "FetchSelect",
+    "AllocFd",
+    "InstallFd",
+    "CloseFd",
+    "DupFd",
+    "FreeFd",
+    "AllocAndInstallFd",
+    "GetFd",
+    "CommonFileGet",
+    "GetCloseOnExec",
+    "SetClientData",
+    "GetFdType",
+    "GetFdNum",
+    "SetRlimit",
+    "GatherCommonFiles",
+    "CloneFDTable",
+    "FdoSetupCofile",
+    "SetCloseAndGetRpccnt",
+    "CleanupPolllist",
+    "TimerFDCreate",
+    "TimerFDSetTime",
+    "TimerFDGetTime",
+    "TimerFDExpireCount",
+    "TimerFDWaitForRead",
+    "TimerFDCleanup",
+    "TimerFDDestroy",
+    "TimerFDCancelOnSet",
+    "HmvFDSetVm"
+   ],
+   "method_count": 29,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_fdtable.h"
+  },
+  {
+   "name": "IrqCtrl",
+   "cap_id": 9,
+   "grant": [
+    "CAPFINEGRANT"
+   ],
+   "grant_move": [
+    "CAPALLGRANTMOVE"
+   ],
+   "methods": [
+    "Info",
+    "ToLogic",
+    "Assign",
+    "Register",
+    "UnRegister",
+    "Enable",
+    "Disable",
+    "Config",
+    "SetWake",
+    "SetAttribute",
+    "SGI",
+    "Ioctl",
+    "Stat"
+   ],
+   "method_count": 13,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "IRQCTRL_STATE",
+     "symbol": "E_HM_IRQCTRL_STATE"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_irqctrl.h"
+  },
+  {
+   "name": "Livepatch",
+   "cap_id": 17,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Load",
+    "Unload",
+    "Patching",
+    "List"
+   ],
+   "method_count": 4,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_livepatch.h"
+  },
+  {
+   "name": "Module",
+   "cap_id": 14,
+   "grant": [
+    "CAPFINEGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Ioctl",
+    "Info",
+    "BindModif",
+    "UnbindModif"
+   ],
+   "method_count": 4,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_INNER_ERR",
+     "symbol": "E_HM_MODULE_INNER_ERR"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_PARA_ERR",
+     "symbol": "E_HM_MODULE_PARA_ERR"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_OUT_OF_MEM",
+     "symbol": "E_HM_MODULE_OUT_OF_MEM"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_UNINIT",
+     "symbol": "E_HM_MODULE_UNINIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_NO_PROCESS",
+     "symbol": "E_HM_MODULE_NO_PROCESS"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_PROCESS_EXIT",
+     "symbol": "E_HM_MODULE_PROCESS_EXIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_NO_SUBSCRIBE_THREAD",
+     "symbol": "E_HM_MODULE_NO_SUBSCRIBE_THREAD"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_NON_SCHED_GRP_MUL_THREAD",
+     "symbol": "E_HM_MODULE_NON_SCHED_GRP_MUL_THREAD"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_GRP_INVALID",
+     "symbol": "E_HM_MODULE_GRP_INVALID"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_PUBLISH_QUE_FULL",
+     "symbol": "E_HM_MODULE_PUBLISH_QUE_FULL"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_NO_GRP",
+     "symbol": "E_HM_MODULE_NO_GRP"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_GRP_EXIT",
+     "symbol": "E_HM_MODULE_GRP_EXIT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_THREAD_EXCEEDS_SPEC",
+     "symbol": "E_HM_MODULE_THREAD_EXCEEDS_SPEC"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_RUN_IN_ILLEGAL_CPU",
+     "symbol": "E_HM_MODULE_RUN_IN_ILLEGAL_CPU"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_WAIT_TIMEOUT",
+     "symbol": "E_HM_MODULE_WAIT_TIMEOUT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_WAIT_FAILED",
+     "symbol": "E_HM_MODULE_WAIT_FAILED"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_WAIT_INTERRUPT",
+     "symbol": "E_HM_MODULE_WAIT_INTERRUPT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_THREAD_NOT_RUNNIG",
+     "symbol": "E_HM_MODULE_THREAD_NOT_RUNNIG"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_PROCESS_NOT_MATCH",
+     "symbol": "E_HM_MODULE_PROCESS_NOT_MATCH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_EVENT_NOT_MATCH",
+     "symbol": "E_HM_MODULE_EVENT_NOT_MATCH"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_PROCESS_REPEAT_ADD",
+     "symbol": "E_HM_MODULE_PROCESS_REPEAT_ADD"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_GRP_NON_SCHED",
+     "symbol": "E_HM_MODULE_GRP_NON_SCHED"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_NO_EVENT",
+     "symbol": "E_HM_MODULE_NO_EVENT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "MODULE_COPY_USER",
+     "symbol": "E_HM_MODULE_COPY_USER"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_module.h"
+  },
+  {
+   "name": "Permission",
+   "cap_id": 15,
+   "grant": [
+    "CAPNOGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Stat"
+   ],
+   "method_count": 1,
+   "errnos": [
+    {
+     "kind": "EPERM",
+     "code": "PERMISSION_NORIGHT",
+     "symbol": "E_HM_PERMISSION_NORIGHT"
+    },
+    {
+     "kind": "EINVAL",
+     "code": "PERMISSION_INVAL_CREF",
+     "symbol": "E_HM_PERMISSION_INVAL_CREF"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_permission.h"
+  },
+  {
+   "name": "PMEM",
+   "cap_id": 3,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Stat"
+   ],
+   "method_count": 1,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "PMEM_IN_USE",
+     "symbol": "E_HM_PMEM_IN_USE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "PMEM_SRC_STATE",
+     "symbol": "E_HM_PMEM_SRC_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "PMEM_DST_STATE",
+     "symbol": "E_HM_PMEM_DST_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "PMEM_NOMEM",
+     "symbol": "E_HM_PMEM_NOMEM"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "PMEM_OBJSIZE",
+     "symbol": "E_HM_PMEM_OBJSIZE"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_pmem.h"
+  },
+  {
+   "name": "Scheduler",
+   "cap_id": 11,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Stat"
+   ],
+   "method_count": 1,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_scheduler.h"
+  },
+  {
+   "name": "SysCtrl",
+   "cap_id": 8,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "PowerOff",
+    "Reboot",
+    "GetSoftRebootInfo",
+    "Kexec",
+    "KexecLoadFiles",
+    "KexecGetFiles",
+    "KexecUnload",
+    "StopMachine",
+    "ResumeMachine",
+    "CpuUp",
+    "CpuOff",
+    "CpuAffinity",
+    "PmSuspend",
+    "PmCpuDown",
+    "PmHibernate",
+    "PmSoftwareResume",
+    "PmGetSafePageNums",
+    "LoadDTB",
+    "ReadDTB",
+    "ReadConf",
+    "WriteConf",
+    "GetTRNG",
+    "Debug",
+    "GetCpuStat",
+    "GetCpuSmtStat",
+    "SetTimeZone",
+    "SetRealOffset",
+    "SetTockPolicy",
+    "SuspendSetState",
+    "SetKlogportLevel",
+    "KevSetEnable",
+    "KevSetFilter",
+    "KevSetWater",
+    "KevSetBlockInfo",
+    "KevReadData",
+    "KevReadEventNumber",
+    "KevReadEventConfig",
+    "KevClear",
+    "TraceInitTpString",
+    "TraceInitEvent",
+    "TraceEnableDisableEvent",
+    "RespartCtrl",
+    "KShare",
+    "KUnShare",
+    "GetRootfsInfo",
+    "UpdateRsvMemRange",
+    "ACBChkFlagWrite",
+    "ACBChkFlagRead",
+    "CPUStackPrint",
+    "EkboxRead",
+    "RegisterLsyscallServer",
+    "UnRegisterLsyscallServer",
+    "PoolInsertPage",
+    "GetKernelLoadInfo",
+    "PerfSetCallGraphEnabled",
+    "HmprobeModuleKeep",
+    "HmprobeModuleUnkeep",
+    "HmprobeEventCreate",
+    "HmprobeEventDestroy",
+    "HmprobeEventAttach",
+    "HmprobeEventDetach",
+    "GetKernelSymbolsInfo",
+    "GetKernelSymbolsNum",
+    "GetIotcmemIONums",
+    "GetIotcmemIORegs",
+    "SmmuInsertPage",
+    "SmmuPoolShrinker"
+   ],
+   "method_count": 67,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_sysctrl.h"
+  },
+  {
+   "name": "Thread",
+   "cap_id": 2,
+   "grant": [
+    "CAPCOARSEGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Resume",
+    "Wake",
+    "KillTcbSilently",
+    "HMSignalKill",
+    "UpdateVecIdx",
+    "VSpaceOf",
+    "SetCpu",
+    "GetCpu",
+    "Suspend",
+    "AttachCpuContext",
+    "DetachCpuContext",
+    "Stat",
+    "SetName",
+    "TriggerDetachOne",
+    "HMSignalMask",
+    "GetSecureCookie",
+    "SetSecureCookie",
+    "GetPreferCookie",
+    "SetPreferCookie",
+    "SetSmtExpeller",
+    "L3cPartCtrl",
+    "FloInit",
+    "FloOnoff",
+    "PerfCtrl",
+    "MiscdataRead",
+    "MiscdataWrite",
+    "SeccompKernelCache",
+    "MiscdataReadv",
+    "MiscdataWritev",
+    "MiscdataReadvCas",
+    "MiscdataWritevCas",
+    "ExtFastcallBind",
+    "ExtFastcallUnbind",
+    "AvailableExtFastcall",
+    "SetRq",
+    "SetTickLess",
+    "KvicSourceBind",
+    "KvicSourceUnbind",
+    "KvicKevSourceBind",
+    "KvicKevSourceUnbind",
+    "SchedSetAttr",
+    "SchedGetAttr",
+    "PacCtrl",
+    "PtraceSet",
+    "RtFutexExit"
+   ],
+   "method_count": 45,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "THREAD_STATE",
+     "symbol": "E_HM_THREAD_STATE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "THREAD_NOEXSP",
+     "symbol": "E_HM_THREAD_NOEXSP"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "THREAD_HMSIGNAL_PENDING",
+     "symbol": "E_HM_THREAD_HMSIGNAL_PENDING"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_thread.h"
+  },
+  {
+   "name": "Timer",
+   "cap_id": 13,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "Cancel",
+    "Start",
+    "Remain",
+    "OverrunCount"
+   ],
+   "method_count": 4,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "TIMER_STARTED",
+     "symbol": "E_HM_TIMER_STARTED"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_timer.h"
+  },
+  {
+   "name": "VM",
+   "cap_id": 12,
+   "grant": [
+    "CAPFINEGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "GetVcpuStructSize",
+    "GetIORegNum",
+    "GetIORegs",
+    "RegisterIOReg",
+    "UnRegisterIOReg",
+    "BindVcpuActvpool",
+    "UnBindVcpuActvpool",
+    "BindDispatcherActvpool",
+    "CreateVnotify",
+    "VnotifyCreateChannel",
+    "VnotifyDestroyChannel",
+    "VnotifyConfig",
+    "GetNumVcpus",
+    "VperfctxConfig",
+    "VperfctxAttach",
+    "VperfctxDetach",
+    "RegisterMMIODispatcher",
+    "BindVcpuMMIODispatcher",
+    "AssertIrq",
+    "AssertLpi",
+    "GetVgicState"
+   ],
+   "method_count": 21,
+   "errnos": [],
+   "config_flags": [],
+   "header": "captype_vm.h"
+  },
+  {
+   "name": "VSpace",
+   "cap_id": 7,
+   "grant": [
+    "CAPALLGRANT"
+   ],
+   "grant_move": [
+    "CAPNOGRANTMOVE"
+   ],
+   "methods": [
+    "MapNormalPage",
+    "ReMapOnePfn",
+    "UnMap",
+    "PreparePgtbl",
+    "Shrink",
+    "MProtect",
+    "Scan",
+    "WriteTo",
+    "ReadFrom",
+    "FlushCache",
+    "MapKSharePage",
+    "FutexWake"
+   ],
+   "method_count": 12,
+   "errnos": [
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_NOPT",
+     "symbol": "E_HM_VSPACE_NOPT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_NOPG",
+     "symbol": "E_HM_VSPACE_NOPG"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_PG",
+     "symbol": "E_HM_VSPACE_PG"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_PT",
+     "symbol": "E_HM_VSPACE_PT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_PG_IN_USE",
+     "symbol": "E_HM_VSPACE_PG_IN_USE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_PT_IN_USE",
+     "symbol": "E_HM_VSPACE_PT_IN_USE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_HINT",
+     "symbol": "E_HM_VSPACE_HINT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_LAYOUT",
+     "symbol": "E_HM_VSPACE_LAYOUT"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_ONLINE",
+     "symbol": "E_HM_VSPACE_ONLINE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_IN_USE",
+     "symbol": "E_HM_VSPACE_IN_USE"
+    },
+    {
+     "kind": "EHMERROR",
+     "code": "VSPACE_NO_MASTER",
+     "symbol": "E_HM_VSPACE_NO_MASTER"
+    }
+   ],
+   "config_flags": [],
+   "header": "captype_vspace.h"
+  }
+ ],
+ "numbered_ops": {
+  "AUDIT": [
+   {
+    "op": "SYSCALL_ARGC",
+    "value": 4,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "TYPE_CTX_DATA",
+    "value": 0,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "TYPE_CTX_DEL",
+    "value": 1,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "TYPE_AVC_INVALID",
+    "value": 0,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "TYPE_AVC_CRIGHT",
+    "value": 1,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "TYPE_AVC_PERMISSION",
+    "value": 2,
+    "header": "hmkernel/audit.h"
+   },
+   {
+    "op": "AUDIT_CMD_DISABLE",
+    "value": 0,
+    "header": "hmkernel/audit.h",
+    "enum": true
+   },
+   {
+    "op": "AUDIT_CMD_ENABLE",
+    "value": 1,
+    "header": "hmkernel/audit.h",
+    "enum": true
+   }
+  ],
+  "BOOTTRACE": [
+   {
+    "op": "ELFLOADER_START",
+    "value": 0,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_FINISH",
+    "value": 1,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_START",
+    "value": 2,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_POST_START",
+    "value": 3,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_FINISH",
+    "value": 4,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_NR",
+    "value": 5,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_START",
+    "value": 10,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_PRE_INIT",
+    "value": 12,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_EARLY_BOOT_DONE",
+    "value": 14,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_MEM_INIT",
+    "value": 16,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_PROCESS_INIT",
+    "value": 18,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "SYSMGR_BOOT_DONE",
+    "value": 20,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_EARLY_MAP",
+    "value": 21,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_DEVICETREE_BOOT_DONE",
+    "value": 22,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_SWITCH_VECTOR",
+    "value": 23,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_PGSTRTBL_INIT_DONE",
+    "value": 24,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_SWITCH_PGD",
+    "value": 25,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_COREDEV_INIT_DONE",
+    "value": 26,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_MODULES_INIT_DONE",
+    "value": 27,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_CORE_INIT_DONE",
+    "value": 28,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "KERNEL_KP_END",
+    "value": 29,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_START",
+    "value": 40,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_FINISH",
+    "value": 41,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_EARLYDEV",
+    "value": 42,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_PRE_MAIN",
+    "value": 43,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_DEVMAP_INIT",
+    "value": 44,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_MAPMEM",
+    "value": 45,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_MAPDEV",
+    "value": 46,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_EN_MMU",
+    "value": 47,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_VIRTMOD",
+    "value": 48,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_CTX_INIT_DONE",
+    "value": 49,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_BF_PIPE_MAIN",
+    "value": 50,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_MAIN_STAGE_START",
+    "value": 51,
+    "header": "hmkernel/boottrace.h"
+   },
+   {
+    "op": "ELFLOADER_KP_STATGE_NR",
+    "value": 28,
+    "header": "hmkernel/boottrace.h"
+   }
+  ],
+  "CACHE": [
+   {
+    "op": "FLUSH_RANGE",
+    "value": 0,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "FLUSH_ALL",
+    "value": 5,
+    "header": "hmkernel/cache.h"
+   }
+  ],
+  "DCACHE": [
+   {
+    "op": "FLUSH_RANGE",
+    "value": 1,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "CLEAN_RANGE",
+    "value": 3,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "INVAL_RANGE",
+    "value": 4,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "FLUSH_ALL",
+    "value": 6,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "CLEAN_ALL",
+    "value": 8,
+    "header": "hmkernel/cache.h"
+   }
+  ],
+  "ICACHE": [
+   {
+    "op": "FLUSH_RANGE",
+    "value": 2,
+    "header": "hmkernel/cache.h"
+   },
+   {
+    "op": "FLUSH_ALL",
+    "value": 7,
+    "header": "hmkernel/cache.h"
+   }
+  ],
+  "CAP": [
+   {
+    "op": "ACTIVATION_OBJ_SIZE",
+    "value": 2048,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "EC_CHN_OBJ_SIZE",
+    "value": 32,
+    "header": "hmkernel/capability/captype_ec_chn.h"
+   },
+   {
+    "op": "EC_EP_OBJ_SIZE",
+    "value": 256,
+    "header": "hmkernel/capability/captype_ec_ep.h"
+   },
+   {
+    "op": "EPOLL_OBJ_SIZE",
+    "value": 64,
+    "header": "hmkernel/capability/captype_epoll.h"
+   },
+   {
+    "op": "PMEM_TYPE_FREE",
+    "value": 1,
+    "header": "hmkernel/capability/captype_pmem.h"
+   },
+   {
+    "op": "PMEM_TYPE_KOBJ",
+    "value": 2,
+    "header": "hmkernel/capability/captype_pmem.h"
+   },
+   {
+    "op": "PMEM_TYPE_CNODE_TABLE",
+    "value": 3,
+    "header": "hmkernel/capability/captype_pmem.h"
+   },
+   {
+    "op": "BITS",
+    "value": 5,
+    "header": "hmkernel/capability.h"
+   },
+   {
+    "op": "RIGHTS_BITS",
+    "value": 8,
+    "header": "hmkernel/capability.h"
+   }
+  ],
+  "ACTV": [
+   {
+    "op": "WFERET_SECCOMP_ACTION_MASK",
+    "value": 4294901760,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "WFERET_SECCOMP_DATA_MASK",
+    "value": 65535,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "WFERET_SECCOMP_TRAP",
+    "value": 2111635456,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "WFERET_SECCOMP_KILL",
+    "value": 2129526784,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "WFERET_SECCOMP_KILL_STRICT",
+    "value": 2129592320,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "WFERET_SECCOMP_KILL_PROCESS",
+    "value": 2130640896,
+    "header": "hmkernel/capability/captype_activation.h"
+   },
+   {
+    "op": "UPCALL_MAX_RET_ARG_SZ",
+    "value": 256,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "POOL_BIND_FLAG_PRE_ALLOC",
+    "value": 1,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "POOL_BIND_FLAG_POOL",
+    "value": 2,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "POOL_FLAG_STRONG",
+    "value": 1,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "POOL_FLAG_NEED_THREADS",
+    "value": 2,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "LOWTABLE_START",
+    "value": 0,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "MIDTABLE_START",
+    "value": 65,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "HIGHTABLE_START",
+    "value": 128,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "POOL_JOIN_RET_DEACTIVATED",
+    "value": 1,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "KERNMIN",
+    "value": 0,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "PAC_FAULT",
+    "value": 65,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "DATA_FAULT",
+    "value": 66,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "INSN_FAULT",
+    "value": 67,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "DEBUG_FAULT",
+    "value": 68,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "ILLINSN_FAULT",
+    "value": 69,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "HW_BP_FAULT",
+    "value": 70,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "KERN_NOTIF",
+    "value": 71,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "SP_PC_FAULT",
+    "value": 72,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "FPU_FAULT",
+    "value": 73,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "HW_WP_FAULT",
+    "value": 74,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_HMSIGNALS",
+    "value": 75,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_LINUX_SYSCALL",
+    "value": 76,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_KPAGEFAULT",
+    "value": 78,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_VSFAULT",
+    "value": 83,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_HYP_VMEXIT",
+    "value": 84,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_SIGMASK_SAVE",
+    "value": 85,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_SIGMASK_RESTORE",
+    "value": 86,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_EPOLL_RECHECK",
+    "value": 87,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_POLLLIST_SYNC",
+    "value": 88,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_PPOLL",
+    "value": 90,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_PPOLL_CLEAR",
+    "value": 91,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_SELECT",
+    "value": 92,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_SELECT_CLEAR",
+    "value": 93,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_POOL_PAGE_ALLOC",
+    "value": 94,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_POOL_PAGE_FREE",
+    "value": 95,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_S2_CREATE",
+    "value": 96,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_FILE_CLOSE",
+    "value": 97,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_CLOSE_ON_EXEC",
+    "value": 98,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_SECCOMP",
+    "value": 99,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_RPCCNT_PUT",
+    "value": 100,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_IRQ_FASTPATH",
+    "value": 101,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_FASTPFOOB",
+    "value": 102,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_BINDER_IOCTL",
+    "value": 103,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_HYP_PAGEFAULT",
+    "value": 104,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_THREAD_TID2CREF",
+    "value": 105,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_HYP_MMIO_DISPATCHER",
+    "value": 106,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_SIGNALS",
+    "value": 107,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_PTRACE_SYSCALL_ENTER",
+    "value": 108,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_PTRACE_SYSCALL_EXIT",
+    "value": 109,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "SS_FAULT",
+    "value": 110,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_EVENTPOLL_RECHECK",
+    "value": 111,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_BADFD_SIGNAL",
+    "value": 112,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "UPCALL_HYP_VM_CREATE",
+    "value": 113,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "KERNMAX",
+    "value": 127,
+    "header": "hmkernel/capability/captype_activation_pool.h"
+   },
+   {
+    "op": "BINDER_CONTEXT_FLAGS_ALLOW_AB_CALL",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/actv_binder_context.h"
+   },
+   {
+    "op": "BINDER_WRKRET_TRANS_CPWK",
+    "value": 0,
+    "header": "hmkernel/drivers/activation/binder.h"
+   },
+   {
+    "op": "BINDER_WRKRET_TRANS_SUCC",
+    "value": 1,
+    "header": "hmkernel/drivers/activation/binder.h"
+   },
+   {
+    "op": "BINDER_WRKRET_TRANS_FAIL",
+    "value": 2,
+    "header": "hmkernel/drivers/activation/binder.h"
+   }
+  ],
+  "NR": [
+   {
+    "op": "MAX_ITEM",
+    "value": 128,
+    "header": "hmkernel/capability/captype_epoll.h"
+   },
+   {
+    "op": "EXT_FASTCALL_VNOTIFY",
+    "value": 12,
+    "header": "hmkernel/vnotify.h"
+   }
+  ],
+  "VSPACE": [
+   {
+    "op": "MPROTECTNG_FLAG_TRYBEST",
+    "value": 1,
+    "header": "hmkernel/capability/captype_vspace.h"
+   }
+  ],
+  "COPGSTR": [
+   {
+    "op": "TWOLVS_TBLENT_MARK",
+    "value": 4095,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "TWOLVS_TBLENT_NOASSIGNED",
+    "value": 1,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "TWOLVS_TBLENT_NOMEM",
+    "value": 2,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "REFCNT_DENY_RECLAIM_REFCNT",
+    "value": 1024,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "TYPE_MASK",
+    "value": 15,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "TYPE_ANON",
+    "value": 2,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "TYPE_FILE",
+    "value": 3,
+    "header": "hmkernel/copgstr.h"
+   },
+   {
+    "op": "STRUCT_SIZE",
+    "value": 64,
+    "header": "hmkernel/copgstr_base.h"
+   },
+   {
+    "op": "SPARSE_PA_BITS",
+    "value": 40,
+    "header": "hmkernel/copgstr_base.h"
+   },
+   {
+    "op": "TWOLVS_PA_BITS",
+    "value": 48,
+    "header": "hmkernel/copgstr_base.h"
+   }
+  ],
+  "BITS": [
+   {
+    "op": "PER_BYTE",
+    "value": 8,
+    "header": "hmkernel/cpuset.h"
+   },
+   {
+    "op": "PER_LONG_LONG",
+    "value": 64,
+    "header": "hmkernel/time.h"
+   }
+  ],
+  "CTRLMEM": [
+   {
+    "op": "SYSCALL_COPGSTRTBL_VAL_OP_MASK",
+    "value": 4095,
+    "header": "hmkernel/ctrlmem/copgstrtbl.h"
+   },
+   {
+    "op": "SYSCALL_COPGSTRTBL_VAL_OP_REGISTER",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/copgstrtbl.h"
+   },
+   {
+    "op": "SYSCALL_COPGSTRTBL_VAL_OP_UNREGISTER",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/copgstrtbl.h"
+   },
+   {
+    "op": "SCHED_PREEMPT_MAX_CPU_CNT",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/cosched.h"
+   },
+   {
+    "op": "SCHED_PREEMPT_MAX_SLV_CNT",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/cosched.h"
+   },
+   {
+    "op": "ITERATOR_BATCH_MAP_PGSTRVA",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/iterator.h"
+   },
+   {
+    "op": "ITERATOR_BATCH_TLBG_UNMAP",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/iterator.h"
+   },
+   {
+    "op": "KOBJCTNR_PAGE_SZ",
+    "value": 4096,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_PIECE_SZ",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_HEADER_SZ",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_FREELISTS_NR",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_PIECES_NR",
+    "value": 240,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_CEILING",
+    "value": 128,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_VSPACE",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_VSPACE",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_PROCESS",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_PROCESS",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_THREAD",
+    "value": 128,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_THREAD",
+    "value": 7,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_COFILE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_COFILE",
+    "value": 6,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_PCACHE",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_PCACHE",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_SYSPGARR",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_SYSPGARR",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_VSPACEEXT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_VSPACEEXT",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_POLLLIST",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_POLLLIST",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_ULWT",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_ULWT",
+    "value": 6,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_SYSEVENT",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_SYSEVENT",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_HMPSFMOD",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_HMPSFMOD",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_HMPSFMAP",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_HMPSFMAP",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_ACTV_FRAME",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_ACTV_FRAME",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_FSVERITY",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_FSVERITY",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_ACTV_BINDER_CONTEXT",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_ACTV_BINDER_CONTEXT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_ACTV_BINDER_REFER",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_ACTV_BINDER_REFER",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJSZ_PERFEVENT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_KOBJNFL_PERFEVENT",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_0",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_1",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_2",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_3",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_4",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_5",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_6",
+    "value": 6,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_FREELIST_7",
+    "value": 7,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_DATA",
+    "value": 9,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_VSPACE",
+    "value": 10,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_PCACHE",
+    "value": 11,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_SYSPGARR",
+    "value": 12,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_VSPACEEXT",
+    "value": 13,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_COFILE",
+    "value": 14,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_POLLLIST",
+    "value": 15,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_PROCESS",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_THREAD",
+    "value": 17,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_ULWT",
+    "value": 18,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_SYSEVENT",
+    "value": 19,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_HMPSFMOD",
+    "value": 20,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_HMPSFMAP",
+    "value": 21,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_ACTV_FRAME",
+    "value": 22,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_FSVERITY",
+    "value": 23,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_ACTV_BINDER_CONTEXT",
+    "value": 24,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_ACTV_BINDER_REFER",
+    "value": 25,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_PERFEVENT",
+    "value": 26,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_MAX",
+    "value": 27,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_LOCKED_KOBJ",
+    "value": 127,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJCTNR_META_KOBJ_UNINITED",
+    "value": 128,
+    "header": "hmkernel/ctrlmem/kobjctnr.h"
+   },
+   {
+    "op": "KOBJ_ACTV_BINDER_CONTEXT_SIZE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/actv_binder_context.h"
+   },
+   {
+    "op": "KOBJ_ACTV_BINDER_REFER_SIZE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/actv_binder_refer.h"
+   },
+   {
+    "op": "KOBJ_ACTV_FRAME_SIZE",
+    "value": 128,
+    "header": "hmkernel/ctrlmem/kobjs/actv_frame.h"
+   },
+   {
+    "op": "FSPGCACHE_RDT_SHIFT_SIZE",
+    "value": 6,
+    "header": "hmkernel/ctrlmem/kobjs/fspgcache.h"
+   },
+   {
+    "op": "FSVERITY_MAX_LEVELS",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_MAX_SALT_SIZE",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_MAX_ALG_NUM",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_MIN_MERKLE_TREE_BLOCK_SHIFT",
+    "value": 10,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_SHA256_DIGEST_SIZE",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_SHA256_BLOCK_SIZE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_SHA512_DIGEST_SIZE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_SHA512_BLOCK_SIZE",
+    "value": 128,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_INFO_CORE_TYPE_KOBJ",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "FSVERITY_MAX_PENDING_PAGES",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_FSVERITY_OP_NULL",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_FSVERITY_OP_VERIFY",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_FSVERITY_OP_VERIFY_MB",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_FSVERITY_OP_UPDATE",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_FSVERITY_VERIFY_E_OK",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   },
+   {
+    "op": "KOBJ_HMPSFMAP_FLAGS_SHARED",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/hmpsfmap.h"
+   },
+   {
+    "op": "KOBJ_PERFEVENT_SIZE",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjs/perfevent.h"
+   },
+   {
+    "op": "KOBJ_POLLLIST_STATE_RELEASED",
+    "value": 4294967295,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "U32_MAX_VAL",
+    "value": 4294967295,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "KOBJ_PROCESS_STATE_LOCKED",
+    "value": 4294967295,
+    "header": "hmkernel/ctrlmem/kobjs/process.h"
+   },
+   {
+    "op": "RWLOCK_RDSHIFT",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/rwlock.h"
+   },
+   {
+    "op": "RWLOCK_WRSHIFT",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjs/rwlock.h"
+   },
+   {
+    "op": "RWLOCK_RDMASK",
+    "value": 65535,
+    "header": "hmkernel/ctrlmem/kobjs/rwlock.h"
+   },
+   {
+    "op": "RWLOCK_WRMASK",
+    "value": 4294901760,
+    "header": "hmkernel/ctrlmem/kobjs/rwlock.h"
+   },
+   {
+    "op": "SYSPARULE_UNSET",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/syspa.h"
+   },
+   {
+    "op": "SYSPARULE_PTWALK",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/syspa.h"
+   },
+   {
+    "op": "SYSPARULE_LINEAR",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/syspa.h"
+   },
+   {
+    "op": "SYSPARULE_SPIN",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjs/syspa.h"
+   },
+   {
+    "op": "KOBJ_SYSPGARR_PADDING_N",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/syspgarr.h"
+   },
+   {
+    "op": "KOBJ_SYSPGARR_TYPE_SPARSE",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/syspgarr.h"
+   },
+   {
+    "op": "KOBJ_SYSPGARR_TYPE_DPA",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/syspgarr.h"
+   },
+   {
+    "op": "KOBJ_ULWT_SIZE",
+    "value": 1024,
+    "header": "hmkernel/ctrlmem/kobjs/ulwt.h"
+   },
+   {
+    "op": "KOBJ_VRCACHE_BITS",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vrcache.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_NEWTBL",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_CLSTBL",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_FORKPTE",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_NOREPROTECT",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_REPROTECT",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_SEL_NO",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_CHANNELPG",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_RANGEOP_FORKVS_FLAGS_TBLPGNNEEDED",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_STATE_LOCKED",
+    "value": 4294967295,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_CTOR_FLAG_PRIVILEGED",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_CTOR_FLAG_HAS_LINEAR_MAP",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_CTOR_FLAG_SUPERVS",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_FLAG_SUPERVSABLE",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "KOBJ_VSPACE_CTOR_FLAG_COPGTABLEVS",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjs/vspace.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLKLL_VAL_OP_MASK",
+    "value": 4095,
+    "header": "hmkernel/ctrlmem/pgtblkll.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLKLL_VAL_OP_COPGSTR",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/pgtblkll.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_REPROTECT_MASK",
+    "value": 4294967292,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_ACCESS_FLAG_MASK",
+    "value": 3221225472,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_ACCESS_FLAG_UNSET",
+    "value": 2147483648,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_ACCESS_FLAG_SET",
+    "value": 1073741824,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_MKRDONLY_MASK",
+    "value": 805306368,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_MKRDONLY_SET",
+    "value": 536870912,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "SYSCALL_PGTBLULL_VAL_CMD_MKRDONLY_UNSET",
+    "value": 268435456,
+    "header": "hmkernel/ctrlmem/pgtblull.h"
+   },
+   {
+    "op": "PDB_OP_SET_UAPPS_PR_RO",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/policydb.h"
+   },
+   {
+    "op": "SYSCALL_UNKNOWN",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_MAP_PGVA",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_CLEAR_ABIT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_CLEAN_SET_KOBJVS",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_REMAP_PGVA_KOBJVS",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_MAP_PGSTRVA",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_BATCH_MAP_PGVA",
+    "value": 6,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_TLBGATHER_UNMAP",
+    "value": 7,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_BATCH_TLBG_UNMAP",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_RANGE_MPROTECT",
+    "value": 9,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_RANGE_MUNMAP",
+    "value": 10,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_VSMKDEAD",
+    "value": 11,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_CHANNELPG_UNLOCK",
+    "value": 12,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_PGSTR_NML2IOFA",
+    "value": 13,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCALL_MAX",
+    "value": 14,
+    "header": "hmkernel/ctrlmem/syscall.h"
+   },
+   {
+    "op": "SYSCONF_VERSION",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_COPGSTR_FLAG_SPARSE",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_COPGSTR_FLAG_TWOLVS",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_CPUINFO_MAX_CPU_CNT",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_CPUINFO_MAX_REG_CNT",
+    "value": 11,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_EXP_SFCP",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_EXP_SFCP_NOPF",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCONF_EXP_NR",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "SYSCALL_TLBGATHER_OP_UNMAP_PARTIAL",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/tlbgather.h"
+   },
+   {
+    "op": "SYSCALL_TLBGATHER_OP_FLUSH",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/tlbgather.h"
+   },
+   {
+    "op": "VSPACE_FLAG_PRIVILEGED",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_FLAG_NOREVOKE",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_FLAG_SUPERVS",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_FREE",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_UPDATING",
+    "value": 536870912,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_ASSIGNED",
+    "value": 1073741824,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_REVOKE_PROBING",
+    "value": 1610612736,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_REVOKE_DECIDED",
+    "value": 2147483648,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_MASK_STATE",
+    "value": 3758096384,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_STATE_MASK_REFCNT",
+    "value": 536870911,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSPACE_ONLINE_VS_BUSY_IDX_PAIR_SHIFT",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSCTRL_VERSION",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSCTRL_MAX_CPU_CNT",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   },
+   {
+    "op": "VSCTRL_NR_SYSTEM_SERVICES",
+    "value": 24,
+    "header": "hmkernel/ctrlmem/vspace.h"
+   }
+  ],
+  "KOBJCOF": [
+   {
+    "op": "TYPE_PROCFS",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   },
+   {
+    "op": "TYPE_INVALID",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   },
+   {
+    "op": "FDATA_PAGE_NR",
+    "value": 120,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   },
+   {
+    "op": "FDATA_CAN_READ",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   },
+   {
+    "op": "FDATA_NEED_FETCH",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   },
+   {
+    "op": "FDATA_INVALID",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/cofile.h"
+   }
+  ],
+  "CTRMMEM": [
+   {
+    "op": "KOBJ_FSVERITY_OP_INVALID",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/fsverity.h"
+   }
+  ],
+  "POLLLIST": [
+   {
+    "op": "NOTIFY_CLEANUP",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "NOTIFY_WAKEUP",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "SPECIFY_EVENTS",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "ENTIRE_EVENTS",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   },
+   {
+    "op": "PADDING_SIZE",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/kobjs/polllist.h"
+   }
+  ],
+  "MISCDATA": [
+   {
+    "op": "KOBJ_THREAD_SIZE",
+    "value": 9,
+    "header": "hmkernel/ctrlmem/kobjs/thread.h"
+   },
+   {
+    "op": "ACTV_IPC_RW_BASE",
+    "value": 6,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "ACTV_IPC_RW_LEN",
+    "value": 7,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "ACTV_SIGPROC_STATE",
+    "value": 8,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_SECCOMP",
+    "value": 26,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_VPID",
+    "value": 28,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_VTID",
+    "value": 29,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_PID",
+    "value": 30,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_TID",
+    "value": 31,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_ID",
+    "value": 32,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_KCOV_IDX_STATE",
+    "value": 33,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "TCB_UID",
+    "value": 34,
+    "header": "hmkernel/miscdata.h"
+   }
+  ],
+  "BASE": [
+   {
+    "op": "ACTV_FRAME_SZ_NR_UL",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjs/thread.h"
+   }
+  ],
+  "AMUDATA": [
+   {
+    "op": "KOBJ_THREAD_SIZE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/thread.h"
+   }
+  ],
+  "GPDATA": [
+   {
+    "op": "KOBJ_THREAD_SIZE",
+    "value": 48,
+    "header": "hmkernel/ctrlmem/kobjs/thread.h"
+   }
+  ],
+  "VREGION": [
+   {
+    "op": "MPROT_NONE",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_READ",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_WRITE",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_EXEC",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_RWX_MASK",
+    "value": 7,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_NOCACHE",
+    "value": 64,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_BTI",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_MASK",
+    "value": 15,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_BITLOCK",
+    "value": 256,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "MPROT_WAITER",
+    "value": 512,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_SHARED",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_PRIVATE",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_LOCKED",
+    "value": 8,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_HHP",
+    "value": 4096,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_NOCOW",
+    "value": 8192,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_COWED",
+    "value": 16384,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_HUGETLB",
+    "value": 32768,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_SHMM",
+    "value": 1048576,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON",
+    "value": 2097152,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "VROBJCACHE_LOCKABLE",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "VROBJCACHE_UNLOCKABLE",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_GZP_1",
+    "value": 2097218,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_GZP_2",
+    "value": 2113602,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_1",
+    "value": 2097218,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_2",
+    "value": 2113602,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_3",
+    "value": 2105410,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_4",
+    "value": 2097222,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_5",
+    "value": 2113606,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_ANON_6",
+    "value": 2105414,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_HHP_1",
+    "value": 2101314,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_FILE_1",
+    "value": 129,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_FILE_2",
+    "value": 130,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_FILE_3",
+    "value": 16514,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "KPF_NOT_CARE_FLAG_MASK",
+    "value": 4060086271,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   },
+   {
+    "op": "FLAGS_HHP_MASK",
+    "value": 2101314,
+    "header": "hmkernel/ctrlmem/kobjs/vregion.h"
+   }
+  ],
+  "KOBJVS": [
+   {
+    "op": "RANGEOP_OP_MADVFREE",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_OP_MUNMAP",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_OP_MPROTECT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_OP_VSCPY",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_OP_CLEAR_REFS",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_OP_REAPING",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_OP_MASK",
+    "value": 3758096384,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_OP_SHIFT",
+    "value": 29,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_FLAGS_ANON",
+    "value": 4,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_FLAGS_PMPROTECT",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_FLAGS_CHANNELPG",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_FLAGS_MASK",
+    "value": 520093696,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_FLAGS_SHIFT",
+    "value": 24,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_MODELID_MASK",
+    "value": 16711680,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_MODELID_SHIFT",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_NRPTES_MASK",
+    "value": 65535,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   },
+   {
+    "op": "RANGEOP_VAL_NRPTES_SHIFT",
+    "value": 0,
+    "header": "hmkernel/ctrlmem/kobjs/vspace/rangeop.h"
+   }
+  ],
+  "PCPINFO": [
+   {
+    "op": "TCB_THREAD_NAME_SIZE",
+    "value": 16,
+    "header": "hmkernel/ctrlmem/pcpinfo.h"
+   }
+  ],
+  "SYSCONF": [
+   {
+    "op": "CONTIGUOUS_NR",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/sysconf.h"
+   },
+   {
+    "op": "STR_LEN_MAX",
+    "value": 64,
+    "header": "hmkernel/sysconf.h"
+   }
+  ],
+  "SYSPG": [
+   {
+    "op": "CACH_TYPE",
+    "value": 1,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "ANON_TYPE",
+    "value": 2,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "FILE_TYPE",
+    "value": 3,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "PTAB_TYPE",
+    "value": 5,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "HUGE_TYPE",
+    "value": 9,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "AHHP_TYPE",
+    "value": 13,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "FHHP_TYPE",
+    "value": 14,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "TYPE_MASK",
+    "value": 15,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "REFCOUNT_COUNTER_MAX",
+    "value": 1073741823,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "REFCOUNT_COUNTER_MASK",
+    "value": 1073741823,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "F_FILEBACKED",
+    "value": 4096,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "F_SHMMBACKED",
+    "value": 33554432,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "L_CTRLMEM_MASK",
+    "value": 4294967167,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "F_MLOCKED",
+    "value": 32,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "F_DCACHE_CLEAN",
+    "value": 8192,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   },
+   {
+    "op": "F_UNMOVABLE",
+    "value": 32768,
+    "header": "hmkernel/ctrlmem/syspg/syspg.h"
+   }
+  ],
+  "NATIVE": [
+   {
+    "op": "BINDER_PROTOCOL_VERSION",
+    "value": 8,
+    "header": "hmkernel/drivers/activation/binder_native.h"
+   },
+   {
+    "op": "BINDER_TF_ONE_WAY",
+    "value": 1,
+    "header": "hmkernel/drivers/activation/binder_native.h"
+   }
+  ],
+  "ARM": [
+   {
+    "op": "PMU_CONFIGURABLE_EVENT_COUNTER_NUM",
+    "value": 31,
+    "header": "hmkernel/drivers/arm_pmu.h"
+   }
+  ],
+  "HMV": [
+   {
+    "op": "IOC_NONE",
+    "value": 0,
+    "header": "hmkernel/drivers/hypervisor.h"
+   },
+   {
+    "op": "IOC_WRITE",
+    "value": 1,
+    "header": "hmkernel/drivers/hypervisor.h"
+   },
+   {
+    "op": "IOC_READ",
+    "value": 2,
+    "header": "hmkernel/drivers/hypervisor.h"
+   }
+  ],
+  "PM": [
+   {
+    "op": "IDLE_C0",
+    "value": 0,
+    "header": "hmkernel/drivers/idle_state.h"
+   },
+   {
+    "op": "SUSPEND_CPU",
+    "value": 11,
+    "header": "hmkernel/drivers/idle_state.h"
+   },
+   {
+    "op": "CLUSTERS_MAX_CAPACITY",
+    "value": 256,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "CLUSTER_THERMAL_CAPACITY",
+    "value": 512,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "CLUSTER_SUSPEND_FREQ_READ",
+    "value": 513,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "TIME_IN_STATE_READ",
+    "value": 768,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "POWER_TRACK_CPU_TOTAL_INST",
+    "value": 769,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "SUSPEND_CNT_READ",
+    "value": 784,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "SLOW_CPUS_READ",
+    "value": 1024,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "FAST_CPU_READ",
+    "value": 1280,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "CPU_LOAD_STAT_READ",
+    "value": 1536,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "CPU_WINDOW_UPDATE",
+    "value": 1792,
+    "header": "hmkernel/power/power_module.h"
+   },
+   {
+    "op": "CPU_TOTAL_LOAD_READ",
+    "value": 2304,
+    "header": "hmkernel/power/power_module.h"
+   }
+  ],
+  "IOMEM": [
+   {
+    "op": "ATOMIC_OP_32_READ",
+    "value": 0,
+    "header": "hmkernel/drivers/iomem.h"
+   },
+   {
+    "op": "ATOMIC_OP_32_AND",
+    "value": 1,
+    "header": "hmkernel/drivers/iomem.h"
+   },
+   {
+    "op": "ATOMIC_OP_32_OR",
+    "value": 2,
+    "header": "hmkernel/drivers/iomem.h"
+   },
+   {
+    "op": "ATOMIC_OP_32_XOR",
+    "value": 3,
+    "header": "hmkernel/drivers/iomem.h"
+   }
+  ],
+  "EXT": [
+   {
+    "op": "FASTCALL_GLOBAL_IOMEM_ATOMIC_OP_32",
+    "value": 12,
+    "header": "hmkernel/drivers/iomem.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_UFUTEX_BLOCK_THREAD",
+    "value": 19,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_UFUTEX_UNBLOCK_THREADS",
+    "value": 20,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_CPUFREQ_UPDATE",
+    "value": 13,
+    "header": "hmkernel/power/cpufreq.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_CHANNEL",
+    "value": 5,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_CTRL_CHANNEL",
+    "value": 6,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_READ_CHN_MSG",
+    "value": 7,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_UPDATE_FUTEX",
+    "value": 8,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_READ_STATUS",
+    "value": 9,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_INJECT_EVENT",
+    "value": 10,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_NOTIFY_CLEAR_VSPACE",
+    "value": 11,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_QUERY_CAPACITY",
+    "value": 14,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_ATTACH_FD",
+    "value": 15,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_BIND_EPOLL",
+    "value": 16,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_SELECT",
+    "value": 17,
+    "header": "hmkernel/vnotify.h"
+   },
+   {
+    "op": "FASTCALL_GLOBAL_VNOTIFY_PPOLL",
+    "value": 18,
+    "header": "hmkernel/vnotify.h"
+   }
+  ],
+  "KBOX": [
+   {
+    "op": "REGION_NAME_SIZE",
+    "value": 32,
+    "header": "hmkernel/drivers/kbox.h"
+   },
+   {
+    "op": "REGION_CBITS_EMPTY_SHIFT",
+    "value": 30,
+    "header": "hmkernel/drivers/kbox.h"
+   }
+  ],
+  "VIRQ": [
+   {
+    "op": "CMD_BIND",
+    "value": 1,
+    "header": "hmkernel/drivers/virq.h"
+   },
+   {
+    "op": "CMD_UNBIND",
+    "value": 2,
+    "header": "hmkernel/drivers/virq.h"
+   },
+   {
+    "op": "CMD_GRANT",
+    "value": 3,
+    "header": "hmkernel/drivers/virq.h"
+   },
+   {
+    "op": "CMD_TRANSLATE",
+    "value": 4,
+    "header": "hmkernel/drivers/virq.h"
+   }
+  ],
+  "HMK": [
+   {
+    "op": "ERR_CODE_BITS",
+    "value": 9,
+    "header": "hmkernel/errno.h"
+   }
+  ],
+  "M": [
+   {
+    "op": "E_HM_OK",
+    "value": 0,
+    "header": "hmkernel/errno.h"
+   }
+  ],
+  "LSYSCALL": [
+   {
+    "op": "MAX_SYS_NO",
+    "value": 514,
+    "header": "hmkernel/extensions/lsyscall.h"
+   },
+   {
+    "op": "MAX_ARGS_NUM",
+    "value": 7,
+    "header": "hmkernel/extensions/lsyscall.h"
+   }
+  ],
+  "FUTEX": [
+   {
+    "op": "OP_OP_SHIFT",
+    "value": 28,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_SHIFT",
+    "value": 24,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_OPARG_SHIFT",
+    "value": 12,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_SIGN_BIT",
+    "value": 11,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_SET",
+    "value": 0,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_ADD",
+    "value": 1,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_OR",
+    "value": 2,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_ANDN",
+    "value": 3,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_XOR",
+    "value": 4,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_OPARG_FLAG",
+    "value": 8,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_EQ",
+    "value": 0,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_NE",
+    "value": 1,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_LT",
+    "value": 2,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_LE",
+    "value": 3,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_GT",
+    "value": 4,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_GE",
+    "value": 5,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_WAIT",
+    "value": 0,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_WAKE",
+    "value": 1,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_FD",
+    "value": 2,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_REQUEUE",
+    "value": 3,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_CMP_REQUEUE",
+    "value": 4,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_WAKE_OP",
+    "value": 5,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_LOCK_PI",
+    "value": 6,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_UNLOCK_PI",
+    "value": 7,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_TRYLOCK_PI",
+    "value": 8,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_WAIT_BITSET",
+    "value": 9,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "OP_WAKE_BITSET",
+    "value": 10,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "PRIVATE_FLAG",
+    "value": 128,
+    "header": "hmkernel/futex.h"
+   },
+   {
+    "op": "CLOCK_REALTIME",
+    "value": 256,
+    "header": "hmkernel/futex.h"
+   }
+  ],
+  "UFUTEX": [
+   {
+    "op": "MAX_UNBLOCK_TARGET",
+    "value": 32,
+    "header": "hmkernel/futex.h"
+   }
+  ],
+  "HMPSF": [
+   {
+    "op": "TEST_EXEC",
+    "value": 0,
+    "header": "hmkernel/hmpsf_test_module.h"
+   },
+   {
+    "op": "TEST_ATTACH",
+    "value": 1,
+    "header": "hmkernel/hmpsf_test_module.h"
+   },
+   {
+    "op": "TEST_DETACH",
+    "value": 2,
+    "header": "hmkernel/hmpsf_test_module.h"
+   }
+  ],
+  "KVIC": [
+   {
+    "op": "HKIDS_HKIP_EVENT",
+    "value": 0,
+    "header": "hmkernel/interrupt/kvic.h"
+   },
+   {
+    "op": "HKIDS_SMMU_EVENT",
+    "value": 1,
+    "header": "hmkernel/interrupt/kvic.h"
+   },
+   {
+    "op": "TIMER_ALLOC",
+    "value": 0,
+    "header": "hmkernel/kvic_timer_module.h"
+   },
+   {
+    "op": "TIMER_BIND",
+    "value": 1,
+    "header": "hmkernel/kvic_timer_module.h"
+   },
+   {
+    "op": "TIMER_SET_NEXT_EVENT",
+    "value": 2,
+    "header": "hmkernel/kvic_timer_module.h"
+   }
+  ],
+  "IOT": [
+   {
+    "op": "CMEM_REGS_MAX",
+    "value": 64,
+    "header": "hmkernel/iotcmem_common.h"
+   },
+   {
+    "op": "CMEM_REG_SEG_MAX",
+    "value": 2,
+    "header": "hmkernel/iotcmem_common.h"
+   }
+  ],
+  "HMSIGNAL": [
+   {
+    "op": "RESTARTABLE_NONE",
+    "value": 0,
+    "header": "hmkernel/ipc/hmsignal.h"
+   },
+   {
+    "op": "RESTARTABLE_KCALL",
+    "value": 1,
+    "header": "hmkernel/ipc/hmsignal.h"
+   },
+   {
+    "op": "RESTARTABLE_LSYSCALL",
+    "value": 2,
+    "header": "hmkernel/ipc/hmsignal.h"
+   }
+  ],
+  "SI": [
+   {
+    "op": "KILL",
+    "value": 0,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "CHLD",
+    "value": 1,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FAULT",
+    "value": 2,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "RT",
+    "value": 3,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "SYS",
+    "value": 4,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "TIMER",
+    "value": 5,
+    "header": "hmkernel/ipc/signal.h"
+   }
+  ],
+  "FPE": [
+   {
+    "op": "INTDIV",
+    "value": 1,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "INTOVF",
+    "value": 2,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTDIV",
+    "value": 3,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTOVF",
+    "value": 4,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTUND",
+    "value": 5,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTRES",
+    "value": 6,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTINV",
+    "value": 7,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "FLTUNK",
+    "value": 14,
+    "header": "hmkernel/ipc/signal.h"
+   }
+  ],
+  "SIGNAL": [
+   {
+    "op": "MIN_STANDARD",
+    "value": 1,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "NR_STANDARD",
+    "value": 34,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "UNDEFINED_MIN",
+    "value": 32,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "UNDEFINED_MAX",
+    "value": 34,
+    "header": "hmkernel/ipc/signal.h"
+   },
+   {
+    "op": "MAX_RT",
+    "value": 64,
+    "header": "hmkernel/ipc/signal.h"
+   }
+  ],
+  "JITFORT": [
+   {
+    "op": "SET_ENABLED",
+    "value": 1,
+    "header": "hmkernel/jitfort.h"
+   },
+   {
+    "op": "SET_DISABLED",
+    "value": 2,
+    "header": "hmkernel/jitfort.h"
+   },
+   {
+    "op": "SWITCH_IN",
+    "value": 3,
+    "header": "hmkernel/jitfort.h"
+   },
+   {
+    "op": "SWITCH_OUT",
+    "value": 4,
+    "header": "hmkernel/jitfort.h"
+   }
+  ],
+  "KCOV": [
+   {
+    "op": "STATE_LEN",
+    "value": 16,
+    "header": "hmkernel/kcov.h"
+   },
+   {
+    "op": "IDX_DISABLED",
+    "value": 0,
+    "header": "hmkernel/kcov.h"
+   }
+  ],
+  "KSYM": [
+   {
+    "op": "NAME_LEN",
+    "value": 128,
+    "header": "hmkernel/kload.h"
+   }
+  ],
+  "LASTKLOG": [
+   {
+    "op": "MAGIC_A",
+    "value": 1145128264,
+    "header": "hmkernel/lastklog.h"
+   },
+   {
+    "op": "MAGIC_B",
+    "value": 1263289935,
+    "header": "hmkernel/lastklog.h"
+   },
+   {
+    "op": "MAGIC_C",
+    "value": 172446541,
+    "header": "hmkernel/lastklog.h"
+   }
+  ],
+  "TAG": [
+   {
+    "op": "EMPTY_VAL",
+    "value": 1,
+    "header": "hmkernel/logtag.h"
+   }
+  ],
+  "MISCACCESS": [
+   {
+    "op": "SELF",
+    "value": 1,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "CALLER",
+    "value": 2,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "CALLER_G1",
+    "value": 3,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "CALLER_L1",
+    "value": 4,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "CALLER_G1L1",
+    "value": 5,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "XACT",
+    "value": 6,
+    "header": "hmkernel/miscdata.h"
+   },
+   {
+    "op": "THREAD",
+    "value": 7,
+    "header": "hmkernel/miscdata.h"
+   }
+  ],
+  "KSTACK": [
+   {
+    "op": "REGION_ALIGN_SHIFT_CHANNEL_PAGES_LOCKABLE",
+    "value": 15,
+    "header": "hmkernel/mm/kstack.h"
+   }
+  ],
+  "KPGTBL": [
+   {
+    "op": "PTEV_MARK_COPGSTR",
+    "value": 1,
+    "header": "hmkernel/mm/kvspace.h"
+   }
+  ],
+  "PAGE": [
+   {
+    "op": "TYPE_INVALID",
+    "value": 0,
+    "header": "hmkernel/mm/page.h"
+   },
+   {
+    "op": "TYPE_USER",
+    "value": 1,
+    "header": "hmkernel/mm/page.h"
+   },
+   {
+    "op": "TYPE_IOMEM",
+    "value": 2,
+    "header": "hmkernel/mm/page.h"
+   },
+   {
+    "op": "TYPE_RSV",
+    "value": 3,
+    "header": "hmkernel/mm/page.h"
+   },
+   {
+    "op": "TYPE_CONTIG",
+    "value": 4,
+    "header": "hmkernel/mm/page.h"
+   }
+  ],
+  "PAC": [
+   {
+    "op": "CTRL_UPDATE",
+    "value": 0,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "CTRL_COPY",
+    "value": 1,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "CTRL_SET_ENABLED",
+    "value": 2,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "CTRL_CLR_ENABLED",
+    "value": 3,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "CTRL_GET_ENABLED",
+    "value": 4,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "CTRL_SET_RESTRICT",
+    "value": 5,
+    "header": "hmkernel/pac.h"
+   },
+   {
+    "op": "SHIFT_BITS",
+    "value": 32,
+    "header": "hmkernel/pac_func.h"
+   }
+  ],
+  "PERF": [
+   {
+    "op": "EVTCNT_GET_BATCH_NUM",
+    "value": 8,
+    "header": "hmkernel/perf_event.h"
+   },
+   {
+    "op": "CONFIGURABLE_EVENT_COUNTER_NUM",
+    "value": 32,
+    "header": "hmkernel/perf_event.h"
+   },
+   {
+    "op": "CONFIGURABLE_BREAKPOINT_NUM",
+    "value": 16,
+    "header": "hmkernel/perf_event.h"
+   },
+   {
+    "op": "MAX_BRANCH_NR",
+    "value": 64,
+    "header": "hmkernel/perf_event.h"
+   },
+   {
+    "op": "MAX_BRANCH_NR",
+    "value": 32,
+    "header": "hmkernel/perf_event.h"
+   },
+   {
+    "op": "MAX_SERVER_NR",
+    "value": 8,
+    "header": "hmkernel/perf_event.h"
+   }
+  ],
+  "PGSTR": [
+   {
+    "op": "TYPE_NOMEM",
+    "value": 0,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_NORMALPG",
+    "value": 1,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGSTRTBL",
+    "value": 2,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_KERNEL",
+    "value": 3,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_CTRLMEM",
+    "value": 4,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOMEM",
+    "value": 5,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_RESERVED",
+    "value": 6,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_BOOTDATA",
+    "value": 7,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_CTRLMEM_VSPACE",
+    "value": 8,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_CONTIG",
+    "value": 9,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_KSHARE_UDATA",
+    "value": 10,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGTBL_FL",
+    "value": 11,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGTBL_ML1",
+    "value": 12,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGTBL_ML2",
+    "value": 13,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGTBL_ULL",
+    "value": 14,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PGTBL_KLL",
+    "value": 15,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOMEM_RDONLY",
+    "value": 16,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOMEM_NOMAP",
+    "value": 17,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOMEM_VIRT",
+    "value": 18,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_KOBJ_CONTAINER",
+    "value": 19,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SYSCONF",
+    "value": 20,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SYSMGRPG",
+    "value": 21,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SYSPGARRPG",
+    "value": 22,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SYSPCACHE",
+    "value": 23,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_GLOBAL_ZERO",
+    "value": 24,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_OPLOG",
+    "value": 25,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_VM",
+    "value": 26,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_ITERATOR",
+    "value": 27,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_TLBGATHER",
+    "value": 28,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_COSCHED",
+    "value": 29,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SUPERVS",
+    "value": 30,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_CHANNELPG",
+    "value": 31,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_REVENTSPG",
+    "value": 32,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_HMPSF",
+    "value": 33,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_KERNELBIN",
+    "value": 34,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_HMPSFSH",
+    "value": 35,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_ULWT",
+    "value": 36,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PCPINFO",
+    "value": 37,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_DFX_MEM",
+    "value": 38,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_DFX_MEM_NC",
+    "value": 39,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SNAPSHOT_NML",
+    "value": 40,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SNAPSHOT_CTG",
+    "value": 41,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOFAST",
+    "value": 42,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOFAST_HIGH",
+    "value": 43,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_IOFAST_CTG",
+    "value": 44,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SMMU_PT",
+    "value": 45,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SMMU_PGD",
+    "value": 46,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_VERITY_HASH",
+    "value": 47,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_HIGHMEM",
+    "value": 48,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_RDONLYPG",
+    "value": 49,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_SIGNED_CODE",
+    "value": 50,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_DM_CODE",
+    "value": 51,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_POOL_PAGE",
+    "value": 52,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PROBE_PAGE",
+    "value": 53,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_COPGSTRTBL",
+    "value": 54,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_KLOADBIN",
+    "value": 55,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_POLICYDB",
+    "value": 56,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_PERF_EVENT_PAGE",
+    "value": 57,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_INVALID",
+    "value": 58,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TYPE_NR",
+    "value": 58,
+    "header": "hmkernel/pgstr/pgstr.h"
+   }
+  ],
+  "PGSTRSUPEROP": [
+   {
+    "op": "MASK",
+    "value": 3,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "MARK",
+    "value": 3,
+    "header": "hmkernel/pgstr/pgstr.h"
+   }
+  ],
+  "PGSTRV": [
+   {
+    "op": "TRANSCTRL_NML2PGT_DIRECT_KLINEAR",
+    "value": 1,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TRANSCTRL_NML2PGT_ZERO_REFCNT",
+    "value": 2,
+    "header": "hmkernel/pgstr/pgstr.h"
+   },
+   {
+    "op": "TRANSCTRL_PGT2NML_ZERO_REFCNT",
+    "value": 1,
+    "header": "hmkernel/pgstr/pgstr.h"
+   }
+  ],
+  "CPUFREQ": [
+   {
+    "op": "UPDATE_FREQUENCY",
+    "value": 0,
+    "header": "hmkernel/power/cpufreq.h"
+   },
+   {
+    "op": "UPDATE_MIN_LIMIT",
+    "value": 1,
+    "header": "hmkernel/power/cpufreq.h"
+   },
+   {
+    "op": "UPDATE_MAX_LIMIT",
+    "value": 2,
+    "header": "hmkernel/power/cpufreq.h"
+   },
+   {
+    "op": "UPDATE_TYPE_MAX",
+    "value": 3,
+    "header": "hmkernel/power/cpufreq.h"
+   }
+  ],
+  "EM": [
+   {
+    "op": "FREQUENCY_SCALE_FACTOR",
+    "value": 1024,
+    "header": "hmkernel/power/energy_model.h"
+   },
+   {
+    "op": "SYSTEM_MAX_CAPACITY",
+    "value": 1024,
+    "header": "hmkernel/power/energy_model.h"
+   },
+   {
+    "op": "INVALID_FREQ",
+    "value": 4294967295,
+    "header": "hmkernel/power/energy_model.h"
+   }
+  ],
+  "SCHED": [
+   {
+    "op": "IND_DEFAULT_HISPEED_LOAD_RATIO",
+    "value": 99,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_DEFAULT_RATE_LIMIT_MS",
+    "value": 79,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_DEFAULT_TARGET_LOAD",
+    "value": 90,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CPUFREQ_JUMP_RATIO",
+    "value": 120,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CPUFREQ_RATIO_PERCENT",
+    "value": 100,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_DEFAULT_IOWAIT_BOOST_STEP",
+    "value": 200000,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_DEFAULT_IO_IS_BUSY",
+    "value": 1,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_LOAD_THRESHOLD_RATIO",
+    "value": 83,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_DEFAULT_SIZE",
+    "value": 64,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TOGGLE",
+    "value": 256,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_FAST_RAMP_UP",
+    "value": 512,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_FAST_RAMP_DOWN",
+    "value": 768,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_MIGRATION_LIMIT",
+    "value": 1024,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TIMER_SLACK",
+    "value": 1280,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_WINDOW_SIZE",
+    "value": 1536,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_HISPEED_FREQ",
+    "value": 1792,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_GO_HISPEED_LOAD",
+    "value": 2048,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_ABOVE_HISPEED_DELAY",
+    "value": 2304,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_MIN_SAMPLE_TIME",
+    "value": 2560,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TARGET_LOADS",
+    "value": 2816,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_BOOSTPULSE_ENDTIME",
+    "value": 3072,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TOPLOAD_SIZE",
+    "value": 3073,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TOPLOAD_EMPTY",
+    "value": 3074,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_TOPLOAD_POLICY",
+    "value": 3075,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_CLUSTER_TUNER_TYPE",
+    "value": 3328,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_IOWAIT_BOOST_STEP",
+    "value": 3584,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_IOWAIT_UPPER_LIMIT",
+    "value": 3585,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_IO_IS_BUSY",
+    "value": 3586,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_FREQ_REPORTING_POLICY",
+    "value": 3840,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_FREQ_PID",
+    "value": 3856,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_SPEED_PID",
+    "value": 3857,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_PID_CONTROL_ENABLE",
+    "value": 3858,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_PID_CONTROL_TARGET_LOAD",
+    "value": 3859,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_PID_THERMAL_ENABLE",
+    "value": 3860,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_PID_THERMAL_EXEMPT",
+    "value": 3861,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "IND_CMD_SHELL_TEMP_UPDATE",
+    "value": 3862,
+    "header": "hmkernel/power/sched_indicator.h"
+   },
+   {
+    "op": "SET_CONF",
+    "value": 0,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CONF",
+    "value": 1,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "TCB_SET_ATTR",
+    "value": 2,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "TCB_GET_ATTR",
+    "value": 3,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "TRANS",
+    "value": 4,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "MARK_LOAD_WEIGHT",
+    "value": 5,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "MARK_RESTRICTED_RT",
+    "value": 6,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_RESTRICTED_RT_STATE",
+    "value": 7,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LOAD_BALANCER_SWITCH",
+    "value": 100,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_SCHED_DEBUG_ATTR",
+    "value": 101,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_LOADAVG",
+    "value": 102,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "CPUISO_SET_CONF",
+    "value": 103,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "CPUISO_GET_CONF",
+    "value": 104,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_CHILD_RUNS_FIRST",
+    "value": 105,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CHILD_RUNS_FIRST",
+    "value": 106,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_SCHED_STAT",
+    "value": 107,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_SCHED_SCHEDSTATS",
+    "value": 108,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "XDEP_INFER_CTRL",
+    "value": 109,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "PREEMPT_CONF",
+    "value": 203,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "PREEMPT_PROCESS_EXIT",
+    "value": 204,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "PREEMPT_SET_SLV",
+    "value": 205,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "PREEMPT_RESCHED",
+    "value": 206,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "BANDWIDTH_SET_CONF",
+    "value": 301,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "BANDWIDTH_GET_CONF",
+    "value": 302,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_STAT_CONF",
+    "value": 401,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_SET_CONF",
+    "value": 500,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_GET_CONF",
+    "value": 501,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_SET_GLOBAL_CONF",
+    "value": 502,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_GET_GLOBAL_CONF",
+    "value": 503,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_GROUP_ALLOC",
+    "value": 504,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_GROUP_FREE",
+    "value": 505,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "LT_SET_GROUP_CONF",
+    "value": 506,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_CPU_CAPACITY_MARGIN",
+    "value": 507,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CPU_CAPACITY_MARGIN",
+    "value": 508,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_TCB_CAPACITY_MARGIN",
+    "value": 509,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_TCB_CAPACITY_MARGIN",
+    "value": 510,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CAPACITY_DISCOUNT_MT",
+    "value": 511,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_CAPACITY_DISCOUNT_MT",
+    "value": 512,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_GLOBAL_BOOST",
+    "value": 600,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_BOOT_BOOST",
+    "value": 601,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "MARK_IRQ",
+    "value": 602,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "IDLE_INTERRUPT",
+    "value": 603,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "DEADLINE_GROUP_DEBUG",
+    "value": 604,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "RESTORE_UCTX",
+    "value": 607,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "CORESCHED_SET_CONF",
+    "value": 608,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_ICES_MIN_RUNTIME",
+    "value": 609,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_ICES_MIN_RUNTIME",
+    "value": 610,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "REDNER_RT_INIT",
+    "value": 611,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "REDNER_RT_DESTORY",
+    "value": 612,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "REDNER_RT_GET_RTHREAD",
+    "value": 613,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "COLLECT_CPU_LOAD_INFO",
+    "value": 614,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SMT_TIME_STATS_READ",
+    "value": 615,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "BIND_CPU",
+    "value": 616,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "UNBIND_CPU",
+    "value": 617,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_ENERGY_MODE",
+    "value": 618,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_CAPACITY_AWARE",
+    "value": 619,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CAPACITY_AWARE",
+    "value": 620,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "PIN_PREEMPTED_TCB",
+    "value": 622,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SMT_SET_EXPELLER_UTIL",
+    "value": 623,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SMT_GET_EXPELLER_UTIL",
+    "value": 624,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CPU_BUSYTIME",
+    "value": 626,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "COLLECT_CAP_INFO",
+    "value": 627,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_CLUSTER_UTIL",
+    "value": 628,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_CLUSTER_FREQ",
+    "value": 629,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "GET_RT_DOWNGRADED",
+    "value": 631,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "SET_FORCE_SMT_EXPELLER",
+    "value": 632,
+    "header": "hmkernel/sched_module.h"
+   },
+   {
+    "op": "CLR_FORCE_SMT_EXPELLER",
+    "value": 633,
+    "header": "hmkernel/sched_module.h"
+   }
+  ],
+  "MIPS": [
+   {
+    "op": "SET_ENABLE",
+    "value": 0,
+    "header": "hmkernel/sched/mips_common.h"
+   },
+   {
+    "op": "SET_TASK_ENABLE",
+    "value": 1,
+    "header": "hmkernel/sched/mips_common.h"
+   },
+   {
+    "op": "SET_CPU_REPORT_POLICY",
+    "value": 2,
+    "header": "hmkernel/sched/mips_common.h"
+   },
+   {
+    "op": "SET_TASK_REPORT_POLICY",
+    "value": 3,
+    "header": "hmkernel/sched/mips_common.h"
+   },
+   {
+    "op": "SET_WINDOW_SIZE",
+    "value": 4,
+    "header": "hmkernel/sched/mips_common.h"
+   },
+   {
+    "op": "SET_PID_ENABLE",
+    "value": 5,
+    "header": "hmkernel/sched/mips_common.h"
+   }
+  ],
+  "PHASE": [
+   {
+    "op": "SET_LT_ENABLE",
+    "value": 0,
+    "header": "hmkernel/sched/phase_common.h"
+   },
+   {
+    "op": "SET_LOG_ENABLE",
+    "value": 1,
+    "header": "hmkernel/sched/phase_common.h"
+   },
+   {
+    "op": "SET_CPUMASK",
+    "value": 2,
+    "header": "hmkernel/sched/phase_common.h"
+   },
+   {
+    "op": "SET_CNODE_IDX",
+    "value": 3,
+    "header": "hmkernel/sched/phase_common.h"
+   },
+   {
+    "op": "AMU_EVENT_SET",
+    "value": 4,
+    "header": "hmkernel/sched/phase_common.h"
+   }
+  ],
+  "FFTS": [
+   {
+    "op": "THD_SCHED_INFO_SYNC",
+    "value": 621,
+    "header": "hmkernel/sched_module.h"
+   }
+  ],
+  "MSEC": [
+   {
+    "op": "PER_SEC",
+    "value": 1000,
+    "header": "hmkernel/time.h"
+   }
+  ],
+  "USEC": [
+   {
+    "op": "PER_MSEC",
+    "value": 1000,
+    "header": "hmkernel/time.h"
+   }
+  ],
+  "NSEC": [
+   {
+    "op": "PER_USEC",
+    "value": 1000,
+    "header": "hmkernel/time.h"
+   }
+  ],
+  "TRIGGER": [
+   {
+    "op": "WAIT_DONE",
+    "value": 1,
+    "header": "hmkernel/trigger.h"
+   }
+  ],
+  "LDK": [
+   {
+    "op": "TICK_TRIGGER",
+    "value": 0,
+    "header": "hmkernel/trigger.h"
+   }
+  ],
+  "ULWT": [
+   {
+    "op": "BLOCKAWARE_HM_PRCTL_OPS",
+    "value": 1397441089,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_NONE",
+    "value": 0,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_INIT",
+    "value": 1,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_REG",
+    "value": 2,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_UNREG",
+    "value": 3,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_WAIT",
+    "value": 4,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_WAKE",
+    "value": 5,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_SUBOPS_MONITORFD",
+    "value": 6,
+    "header": "hmkernel/ulwt/kinfo.h"
+   },
+   {
+    "op": "BLOCKAWARE_NR_SUBOPS",
+    "value": 7,
+    "header": "hmkernel/ulwt/kinfo.h"
+   }
+  ],
+  "VNOTIFY": [
+   {
+    "op": "CHN_NUM_MAX",
+    "value": 4096,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "INTR",
+    "value": 1,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "NOTIFYING",
+    "value": 2,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "CLOSED",
+    "value": 4,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "EPOLLOUT",
+    "value": 8,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "EPOLLIN",
+    "value": 16,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "CHN_MSG_SIZE",
+    "value": 1024,
+    "header": "hmkernel/vnotify_common.h"
+   },
+   {
+    "op": "CHN_MSG_PAYLOAD",
+    "value": 1016,
+    "header": "hmkernel/vnotify_common.h"
+   }
+  ],
+  "EINJ": [
+   {
+    "op": "EINJ_CMD_FUNC_CALL",
+    "value": 0,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   },
+   {
+    "op": "EINJ_CMD_READ_MEM",
+    "value": 1,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   },
+   {
+    "op": "EINJ_CMD_WRITE_MEM",
+    "value": 2,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   },
+   {
+    "op": "EINJ_CMD_LOOKUP_SYMBOL",
+    "value": 3,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   },
+   {
+    "op": "EINJ_CMD_PROBE",
+    "value": 4,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   },
+   {
+    "op": "EINJ_CMD_MAX",
+    "value": 5,
+    "header": "hmkernel/einj/einj_module.h",
+    "enum": true
+   }
+  ],
+  "PERF_PMU_CONFIG": [
+   {
+    "op": "PERF_PMU_CONFIG_INVALID",
+    "value": 0,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_USER_ENABLE",
+    "value": 1,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_USER_DISABLE",
+    "value": 2,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTYPE_ACQUIRE",
+    "value": 3,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTYPE_RELEASE",
+    "value": 4,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTCNT_GET",
+    "value": 5,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTYPE_ACQUIRE_SINGLE",
+    "value": 6,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTYPE_RELEASE_SINGLE",
+    "value": 7,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTCNT_GET_SINGLE",
+    "value": 8,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_EVTCNT_GET_BATCH",
+    "value": 9,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_UNWINDER",
+    "value": 10,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_PMU_CONFIG_NOTIFY_WAKEUP",
+    "value": 11,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   }
+  ],
+  "PERF_DSU_PMU_CONFIG": [
+   {
+    "op": "PERF_DSU_PMU_CONFIG_INVALID",
+    "value": 0,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_DSU_PMU_CONFIG_EVTYPE_ACQUIRE",
+    "value": 1,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_DSU_PMU_CONFIG_EVTYPE_RELEASE",
+    "value": 2,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   },
+   {
+    "op": "PERF_DSU_PMU_CONFIG_EVTCNT_GET",
+    "value": 3,
+    "header": "hmkernel/perf_event.h",
+    "enum": true
+   }
+  ],
+  "SMMU": [
+   {
+    "op": "SMMU_MAP",
+    "value": 0,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_UNMAP",
+    "value": 1,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_MAP_SG",
+    "value": 2,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_MAP_BATCH",
+    "value": 3,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_UNMAP_BATCH",
+    "value": 4,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_IOVA_TO_PHYS",
+    "value": 5,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_ATTACH_DEV",
+    "value": 6,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_ATTACH_NEW_DEV",
+    "value": 7,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_SVM_DETACH_DEV",
+    "value": 8,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_SMMU_DEVICE_REMOVE",
+    "value": 9,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_SMMU_DOMAIN_FREE",
+    "value": 10,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_TLB_INV_CONTEXT",
+    "value": 11,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_TLB_INV_CONTEXT_DEV",
+    "value": 12,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_FLUSH_TTWC",
+    "value": 13,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_FLUSH_PGTBL_CACHE",
+    "value": 14,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_TCU_POWER_ON",
+    "value": 15,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_TCU_POWER_OFF",
+    "value": 16,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_GET_TTBR",
+    "value": 17,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_GET_TCU_INFO",
+    "value": 18,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_PMU_TCU_CONFIG",
+    "value": 19,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_UNMAP_INV_CACHE",
+    "value": 20,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   },
+   {
+    "op": "SMMU_CMD_MAX",
+    "value": 21,
+    "header": "hmkernel/smmu_syscall.h",
+    "enum": true
+   }
+  ],
+  "WATCHDOG": [
+   {
+    "op": "WATCHDOG_UPDATE_WATCHDOG",
+    "value": 0,
+    "header": "hmkernel/watchdog_module.h",
+    "enum": true
+   },
+   {
+    "op": "WATCHDOG_UPDATE_HIGHDOG_REASON",
+    "value": 1,
+    "header": "hmkernel/watchdog_module.h",
+    "enum": true
+   },
+   {
+    "op": "WATCHDOG_TRIGGER_SNAPSHOT",
+    "value": 2,
+    "header": "hmkernel/watchdog_module.h",
+    "enum": true
+   },
+   {
+    "op": "WATCHDOG_UPDATE_SERVICE_REBOOT_REASON",
+    "value": 3,
+    "header": "hmkernel/watchdog_module.h",
+    "enum": true
+   }
+  ]
+ },
+ "lsyscalls": [
+  {
+   "name": "io_setup",
+   "nr": 0
+  },
+  {
+   "name": "io_destroy",
+   "nr": 1
+  },
+  {
+   "name": "io_submit",
+   "nr": 2
+  },
+  {
+   "name": "io_cancel",
+   "nr": 3
+  },
+  {
+   "name": "io_getevents",
+   "nr": 4
+  },
+  {
+   "name": "setxattr",
+   "nr": 5
+  },
+  {
+   "name": "lsetxattr",
+   "nr": 6
+  },
+  {
+   "name": "fsetxattr",
+   "nr": 7
+  },
+  {
+   "name": "getxattr",
+   "nr": 8
+  },
+  {
+   "name": "lgetxattr",
+   "nr": 9
+  },
+  {
+   "name": "fgetxattr",
+   "nr": 10
+  },
+  {
+   "name": "listxattr",
+   "nr": 11
+  },
+  {
+   "name": "llistxattr",
+   "nr": 12
+  },
+  {
+   "name": "flistxattr",
+   "nr": 13
+  },
+  {
+   "name": "removexattr",
+   "nr": 14
+  },
+  {
+   "name": "lremovexattr",
+   "nr": 15
+  },
+  {
+   "name": "fremovexattr",
+   "nr": 16
+  },
+  {
+   "name": "getcwd",
+   "nr": 17
+  },
+  {
+   "name": "lookup_dcookie",
+   "nr": 18
+  },
+  {
+   "name": "eventfd2",
+   "nr": 19
+  },
+  {
+   "name": "epoll_create1",
+   "nr": 20
+  },
+  {
+   "name": "epoll_ctl",
+   "nr": 21
+  },
+  {
+   "name": "epoll_pwait",
+   "nr": 22
+  },
+  {
+   "name": "dup",
+   "nr": 23
+  },
+  {
+   "name": "dup3",
+   "nr": 24
+  },
+  {
+   "name": "fcntl",
+   "nr": 25
+  },
+  {
+   "name": "inotify_init1",
+   "nr": 26
+  },
+  {
+   "name": "inotify_add_watch",
+   "nr": 27
+  },
+  {
+   "name": "inotify_rm_watch",
+   "nr": 28
+  },
+  {
+   "name": "ioctl",
+   "nr": 29
+  },
+  {
+   "name": "ioprio_set",
+   "nr": 30
+  },
+  {
+   "name": "ioprio_get",
+   "nr": 31
+  },
+  {
+   "name": "flock",
+   "nr": 32
+  },
+  {
+   "name": "mknodat",
+   "nr": 33
+  },
+  {
+   "name": "mkdirat",
+   "nr": 34
+  },
+  {
+   "name": "unlinkat",
+   "nr": 35
+  },
+  {
+   "name": "symlinkat",
+   "nr": 36
+  },
+  {
+   "name": "linkat",
+   "nr": 37
+  },
+  {
+   "name": "renameat",
+   "nr": 38
+  },
+  {
+   "name": "umount2",
+   "nr": 39
+  },
+  {
+   "name": "mount",
+   "nr": 40
+  },
+  {
+   "name": "pivot_root",
+   "nr": 41
+  },
+  {
+   "name": "nfsservctl",
+   "nr": 42
+  },
+  {
+   "name": "statfs",
+   "nr": 43
+  },
+  {
+   "name": "fstatfs",
+   "nr": 44
+  },
+  {
+   "name": "truncate",
+   "nr": 45
+  },
+  {
+   "name": "ftruncate",
+   "nr": 46
+  },
+  {
+   "name": "fallocate",
+   "nr": 47
+  },
+  {
+   "name": "faccessat",
+   "nr": 48
+  },
+  {
+   "name": "chdir",
+   "nr": 49
+  },
+  {
+   "name": "fchdir",
+   "nr": 50
+  },
+  {
+   "name": "chroot",
+   "nr": 51
+  },
+  {
+   "name": "fchmod",
+   "nr": 52
+  },
+  {
+   "name": "fchmodat",
+   "nr": 53
+  },
+  {
+   "name": "fchownat",
+   "nr": 54
+  },
+  {
+   "name": "fchown",
+   "nr": 55
+  },
+  {
+   "name": "openat",
+   "nr": 56
+  },
+  {
+   "name": "close",
+   "nr": 57
+  },
+  {
+   "name": "vhangup",
+   "nr": 58
+  },
+  {
+   "name": "pipe2",
+   "nr": 59
+  },
+  {
+   "name": "quotactl",
+   "nr": 60
+  },
+  {
+   "name": "getdents64",
+   "nr": 61
+  },
+  {
+   "name": "lseek",
+   "nr": 62
+  },
+  {
+   "name": "read",
+   "nr": 63
+  },
+  {
+   "name": "write",
+   "nr": 64
+  },
+  {
+   "name": "readv",
+   "nr": 65
+  },
+  {
+   "name": "writev",
+   "nr": 66
+  },
+  {
+   "name": "pread64",
+   "nr": 67
+  },
+  {
+   "name": "pwrite64",
+   "nr": 68
+  },
+  {
+   "name": "preadv",
+   "nr": 69
+  },
+  {
+   "name": "pwritev",
+   "nr": 70
+  },
+  {
+   "name": "sendfile",
+   "nr": 71
+  },
+  {
+   "name": "pselect6",
+   "nr": 72
+  },
+  {
+   "name": "ppoll",
+   "nr": 73
+  },
+  {
+   "name": "signalfd4",
+   "nr": 74
+  },
+  {
+   "name": "vmsplice",
+   "nr": 75
+  },
+  {
+   "name": "splice",
+   "nr": 76
+  },
+  {
+   "name": "tee",
+   "nr": 77
+  },
+  {
+   "name": "readlinkat",
+   "nr": 78
+  },
+  {
+   "name": "newfstatat",
+   "nr": 79
+  },
+  {
+   "name": "fstat",
+   "nr": 80
+  },
+  {
+   "name": "sync",
+   "nr": 81
+  },
+  {
+   "name": "fsync",
+   "nr": 82
+  },
+  {
+   "name": "fdatasync",
+   "nr": 83
+  },
+  {
+   "name": "sync_file_range",
+   "nr": 84
+  },
+  {
+   "name": "timerfd_create",
+   "nr": 85
+  },
+  {
+   "name": "timerfd_settime",
+   "nr": 86
+  },
+  {
+   "name": "timerfd_gettime",
+   "nr": 87
+  },
+  {
+   "name": "utimensat",
+   "nr": 88
+  },
+  {
+   "name": "acct",
+   "nr": 89
+  },
+  {
+   "name": "capget",
+   "nr": 90
+  },
+  {
+   "name": "capset",
+   "nr": 91
+  },
+  {
+   "name": "personality",
+   "nr": 92
+  },
+  {
+   "name": "exit",
+   "nr": 93
+  },
+  {
+   "name": "exit_group",
+   "nr": 94
+  },
+  {
+   "name": "waitid",
+   "nr": 95
+  },
+  {
+   "name": "set_tid_address",
+   "nr": 96
+  },
+  {
+   "name": "unshare",
+   "nr": 97
+  },
+  {
+   "name": "futex",
+   "nr": 98
+  },
+  {
+   "name": "set_robust_list",
+   "nr": 99
+  },
+  {
+   "name": "get_robust_list",
+   "nr": 100
+  },
+  {
+   "name": "nanosleep",
+   "nr": 101
+  },
+  {
+   "name": "getitimer",
+   "nr": 102
+  },
+  {
+   "name": "setitimer",
+   "nr": 103
+  },
+  {
+   "name": "kexec_load",
+   "nr": 104
+  },
+  {
+   "name": "init_module",
+   "nr": 105
+  },
+  {
+   "name": "delete_module",
+   "nr": 106
+  },
+  {
+   "name": "timer_create",
+   "nr": 107
+  },
+  {
+   "name": "timer_gettime",
+   "nr": 108
+  },
+  {
+   "name": "timer_getoverrun",
+   "nr": 109
+  },
+  {
+   "name": "timer_settime",
+   "nr": 110
+  },
+  {
+   "name": "timer_delete",
+   "nr": 111
+  },
+  {
+   "name": "clock_settime",
+   "nr": 112
+  },
+  {
+   "name": "clock_gettime",
+   "nr": 113
+  },
+  {
+   "name": "clock_getres",
+   "nr": 114
+  },
+  {
+   "name": "clock_nanosleep",
+   "nr": 115
+  },
+  {
+   "name": "syslog",
+   "nr": 116
+  },
+  {
+   "name": "ptrace",
+   "nr": 117
+  },
+  {
+   "name": "sched_setparam",
+   "nr": 118
+  },
+  {
+   "name": "sched_setscheduler",
+   "nr": 119
+  },
+  {
+   "name": "sched_getscheduler",
+   "nr": 120
+  },
+  {
+   "name": "sched_getparam",
+   "nr": 121
+  },
+  {
+   "name": "sched_setaffinity",
+   "nr": 122
+  },
+  {
+   "name": "sched_getaffinity",
+   "nr": 123
+  },
+  {
+   "name": "sched_yield",
+   "nr": 124
+  },
+  {
+   "name": "sched_get_priority_max",
+   "nr": 125
+  },
+  {
+   "name": "sched_get_priority_min",
+   "nr": 126
+  },
+  {
+   "name": "sched_rr_get_interval",
+   "nr": 127
+  },
+  {
+   "name": "restart_syscall",
+   "nr": 128
+  },
+  {
+   "name": "kill",
+   "nr": 129
+  },
+  {
+   "name": "tkill",
+   "nr": 130
+  },
+  {
+   "name": "tgkill",
+   "nr": 131
+  },
+  {
+   "name": "sigaltstack",
+   "nr": 132
+  },
+  {
+   "name": "rt_sigsuspend",
+   "nr": 133
+  },
+  {
+   "name": "rt_sigaction",
+   "nr": 134
+  },
+  {
+   "name": "rt_sigprocmask",
+   "nr": 135
+  },
+  {
+   "name": "rt_sigpending",
+   "nr": 136
+  },
+  {
+   "name": "rt_sigtimedwait",
+   "nr": 137
+  },
+  {
+   "name": "rt_sigqueueinfo",
+   "nr": 138
+  },
+  {
+   "name": "rt_sigreturn",
+   "nr": 139
+  },
+  {
+   "name": "setpriority",
+   "nr": 140
+  },
+  {
+   "name": "getpriority",
+   "nr": 141
+  },
+  {
+   "name": "reboot",
+   "nr": 142
+  },
+  {
+   "name": "setregid",
+   "nr": 143
+  },
+  {
+   "name": "setgid",
+   "nr": 144
+  },
+  {
+   "name": "setreuid",
+   "nr": 145
+  },
+  {
+   "name": "setuid",
+   "nr": 146
+  },
+  {
+   "name": "setresuid",
+   "nr": 147
+  },
+  {
+   "name": "getresuid",
+   "nr": 148
+  },
+  {
+   "name": "setresgid",
+   "nr": 149
+  },
+  {
+   "name": "getresgid",
+   "nr": 150
+  },
+  {
+   "name": "setfsuid",
+   "nr": 151
+  },
+  {
+   "name": "setfsgid",
+   "nr": 152
+  },
+  {
+   "name": "times",
+   "nr": 153
+  },
+  {
+   "name": "setpgid",
+   "nr": 154
+  },
+  {
+   "name": "getpgid",
+   "nr": 155
+  },
+  {
+   "name": "getsid",
+   "nr": 156
+  },
+  {
+   "name": "setsid",
+   "nr": 157
+  },
+  {
+   "name": "getgroups",
+   "nr": 158
+  },
+  {
+   "name": "setgroups",
+   "nr": 159
+  },
+  {
+   "name": "uname",
+   "nr": 160
+  },
+  {
+   "name": "sethostname",
+   "nr": 161
+  },
+  {
+   "name": "setdomainname",
+   "nr": 162
+  },
+  {
+   "name": "getrlimit",
+   "nr": 163
+  },
+  {
+   "name": "setrlimit",
+   "nr": 164
+  },
+  {
+   "name": "getrusage",
+   "nr": 165
+  },
+  {
+   "name": "umask",
+   "nr": 166
+  },
+  {
+   "name": "prctl",
+   "nr": 167
+  },
+  {
+   "name": "getcpu",
+   "nr": 168
+  },
+  {
+   "name": "gettimeofday",
+   "nr": 169
+  },
+  {
+   "name": "settimeofday",
+   "nr": 170
+  },
+  {
+   "name": "adjtimex",
+   "nr": 171
+  },
+  {
+   "name": "getpid",
+   "nr": 172
+  },
+  {
+   "name": "getppid",
+   "nr": 173
+  },
+  {
+   "name": "getuid",
+   "nr": 174
+  },
+  {
+   "name": "geteuid",
+   "nr": 175
+  },
+  {
+   "name": "getgid",
+   "nr": 176
+  },
+  {
+   "name": "getegid",
+   "nr": 177
+  },
+  {
+   "name": "gettid",
+   "nr": 178
+  },
+  {
+   "name": "sysinfo",
+   "nr": 179
+  },
+  {
+   "name": "mq_open",
+   "nr": 180
+  },
+  {
+   "name": "mq_unlink",
+   "nr": 181
+  },
+  {
+   "name": "mq_timedsend",
+   "nr": 182
+  },
+  {
+   "name": "mq_timedreceive",
+   "nr": 183
+  },
+  {
+   "name": "mq_notify",
+   "nr": 184
+  },
+  {
+   "name": "mq_getsetattr",
+   "nr": 185
+  },
+  {
+   "name": "msgget",
+   "nr": 186
+  },
+  {
+   "name": "msgctl",
+   "nr": 187
+  },
+  {
+   "name": "msgrcv",
+   "nr": 188
+  },
+  {
+   "name": "msgsnd",
+   "nr": 189
+  },
+  {
+   "name": "semget",
+   "nr": 190
+  },
+  {
+   "name": "semctl",
+   "nr": 191
+  },
+  {
+   "name": "semtimedop",
+   "nr": 192
+  },
+  {
+   "name": "semop",
+   "nr": 193
+  },
+  {
+   "name": "shmget",
+   "nr": 194
+  },
+  {
+   "name": "shmctl",
+   "nr": 195
+  },
+  {
+   "name": "shmat",
+   "nr": 196
+  },
+  {
+   "name": "shmdt",
+   "nr": 197
+  },
+  {
+   "name": "socket",
+   "nr": 198
+  },
+  {
+   "name": "socketpair",
+   "nr": 199
+  },
+  {
+   "name": "bind",
+   "nr": 200
+  },
+  {
+   "name": "listen",
+   "nr": 201
+  },
+  {
+   "name": "accept",
+   "nr": 202
+  },
+  {
+   "name": "connect",
+   "nr": 203
+  },
+  {
+   "name": "getsockname",
+   "nr": 204
+  },
+  {
+   "name": "getpeername",
+   "nr": 205
+  },
+  {
+   "name": "sendto",
+   "nr": 206
+  },
+  {
+   "name": "recvfrom",
+   "nr": 207
+  },
+  {
+   "name": "setsockopt",
+   "nr": 208
+  },
+  {
+   "name": "getsockopt",
+   "nr": 209
+  },
+  {
+   "name": "shutdown",
+   "nr": 210
+  },
+  {
+   "name": "sendmsg",
+   "nr": 211
+  },
+  {
+   "name": "recvmsg",
+   "nr": 212
+  },
+  {
+   "name": "readahead",
+   "nr": 213
+  },
+  {
+   "name": "brk",
+   "nr": 214
+  },
+  {
+   "name": "munmap",
+   "nr": 215
+  },
+  {
+   "name": "mremap",
+   "nr": 216
+  },
+  {
+   "name": "add_key",
+   "nr": 217
+  },
+  {
+   "name": "request_key",
+   "nr": 218
+  },
+  {
+   "name": "keyctl",
+   "nr": 219
+  },
+  {
+   "name": "clone",
+   "nr": 220
+  },
+  {
+   "name": "execve",
+   "nr": 221
+  },
+  {
+   "name": "mmap",
+   "nr": 222
+  },
+  {
+   "name": "fadvise64",
+   "nr": 223
+  },
+  {
+   "name": "swapon",
+   "nr": 224
+  },
+  {
+   "name": "swapoff",
+   "nr": 225
+  },
+  {
+   "name": "mprotect",
+   "nr": 226
+  },
+  {
+   "name": "msync",
+   "nr": 227
+  },
+  {
+   "name": "mlock",
+   "nr": 228
+  },
+  {
+   "name": "munlock",
+   "nr": 229
+  },
+  {
+   "name": "mlockall",
+   "nr": 230
+  },
+  {
+   "name": "munlockall",
+   "nr": 231
+  },
+  {
+   "name": "mincore",
+   "nr": 232
+  },
+  {
+   "name": "madvise",
+   "nr": 233
+  },
+  {
+   "name": "remap_file_pages",
+   "nr": 234
+  },
+  {
+   "name": "mbind",
+   "nr": 235
+  },
+  {
+   "name": "get_mempolicy",
+   "nr": 236
+  },
+  {
+   "name": "set_mempolicy",
+   "nr": 237
+  },
+  {
+   "name": "migrate_pages",
+   "nr": 238
+  },
+  {
+   "name": "move_pages",
+   "nr": 239
+  },
+  {
+   "name": "rt_tgsigqueueinfo",
+   "nr": 240
+  },
+  {
+   "name": "perf_event_open",
+   "nr": 241
+  },
+  {
+   "name": "accept4",
+   "nr": 242
+  },
+  {
+   "name": "recvmmsg",
+   "nr": 243
+  },
+  {
+   "name": "wait4",
+   "nr": 260
+  },
+  {
+   "name": "prlimit64",
+   "nr": 261
+  },
+  {
+   "name": "fanotify_init",
+   "nr": 262
+  },
+  {
+   "name": "fanotify_mark",
+   "nr": 263
+  },
+  {
+   "name": "name_to_handle_at",
+   "nr": 264
+  },
+  {
+   "name": "open_by_handle_at",
+   "nr": 265
+  },
+  {
+   "name": "clock_adjtime",
+   "nr": 266
+  },
+  {
+   "name": "syncfs",
+   "nr": 267
+  },
+  {
+   "name": "setns",
+   "nr": 268
+  },
+  {
+   "name": "sendmmsg",
+   "nr": 269
+  },
+  {
+   "name": "process_vm_readv",
+   "nr": 270
+  },
+  {
+   "name": "process_vm_writev",
+   "nr": 271
+  },
+  {
+   "name": "kcmp",
+   "nr": 272
+  },
+  {
+   "name": "finit_module",
+   "nr": 273
+  },
+  {
+   "name": "sched_setattr",
+   "nr": 274
+  },
+  {
+   "name": "sched_getattr",
+   "nr": 275
+  },
+  {
+   "name": "renameat2",
+   "nr": 276
+  },
+  {
+   "name": "seccomp",
+   "nr": 277
+  },
+  {
+   "name": "getrandom",
+   "nr": 278
+  },
+  {
+   "name": "memfd_create",
+   "nr": 279
+  },
+  {
+   "name": "bpf",
+   "nr": 280
+  },
+  {
+   "name": "execveat",
+   "nr": 281
+  },
+  {
+   "name": "userfaultfd",
+   "nr": 282
+  },
+  {
+   "name": "membarrier",
+   "nr": 283
+  },
+  {
+   "name": "mlock2",
+   "nr": 284
+  },
+  {
+   "name": "copy_file_range",
+   "nr": 285
+  },
+  {
+   "name": "preadv2",
+   "nr": 286
+  },
+  {
+   "name": "pwritev2",
+   "nr": 287
+  },
+  {
+   "name": "pkey_mprotect",
+   "nr": 288
+  },
+  {
+   "name": "pkey_alloc",
+   "nr": 289
+  },
+  {
+   "name": "pkey_free",
+   "nr": 290
+  },
+  {
+   "name": "statx",
+   "nr": 291
+  },
+  {
+   "name": "io_pgetevents",
+   "nr": 292
+  },
+  {
+   "name": "rseq",
+   "nr": 293
+  },
+  {
+   "name": "kexec_file_load",
+   "nr": 294
+  },
+  {
+   "name": "pause",
+   "nr": 295
+  },
+  {
+   "name": "cpu_getnum",
+   "nr": 400
+  },
+  {
+   "name": "mq_close",
+   "nr": 401
+  },
+  {
+   "name": "set_thread_area",
+   "nr": 402
+  },
+  {
+   "name": "ext_wait",
+   "nr": 406
+  },
+  {
+   "name": "ext_ctrl",
+   "nr": 407
+  },
+  {
+   "name": "proc_check_regs",
+   "nr": 408
+  },
+  {
+   "name": "process_spawn",
+   "nr": 412
+  },
+  {
+   "name": "sched_get_avail_prio_max",
+   "nr": 414
+  },
+  {
+   "name": "pidfd_send_signal",
+   "nr": 424
+  },
+  {
+   "name": "io_uring_setup",
+   "nr": 425
+  },
+  {
+   "name": "io_uring_enter",
+   "nr": 426
+  },
+  {
+   "name": "io_uring_register",
+   "nr": 427
+  },
+  {
+   "name": "open_tree",
+   "nr": 428
+  },
+  {
+   "name": "move_mount",
+   "nr": 429
+  },
+  {
+   "name": "fsopen",
+   "nr": 430
+  },
+  {
+   "name": "fsconfig",
+   "nr": 431
+  },
+  {
+   "name": "fsmount",
+   "nr": 432
+  },
+  {
+   "name": "fspick",
+   "nr": 433
+  },
+  {
+   "name": "pidfd_open",
+   "nr": 434
+  },
+  {
+   "name": "clone3",
+   "nr": 435
+  },
+  {
+   "name": "close_range",
+   "nr": 436
+  },
+  {
+   "name": "openat2",
+   "nr": 437
+  },
+  {
+   "name": "pidfd_getfd",
+   "nr": 438
+  },
+  {
+   "name": "faccessat2",
+   "nr": 439
+  },
+  {
+   "name": "process_madvise",
+   "nr": 440
+  },
+  {
+   "name": "epoll_pwait2",
+   "nr": 441
+  },
+  {
+   "name": "mount_setattr",
+   "nr": 442
+  },
+  {
+   "name": "landlock_create_ruleset",
+   "nr": 444
+  },
+  {
+   "name": "landlock_add_rule",
+   "nr": 445
+  },
+  {
+   "name": "landlock_restrict_self",
+   "nr": 446
+  },
+  {
+   "name": "hmprobe_event_ctl",
+   "nr": 447
+  },
+  {
+   "name": "xvm",
+   "nr": 448
+  },
+  {
+   "name": "dopra_tick",
+   "nr": 500
+  }
+ ],
+ "bootargs": {
+  "fields": [
+   {
+    "field": "load_start",
+    "offset_symbol": "LOAD_START",
+    "offset": 0
+   },
+   {
+    "field": "canary",
+    "offset_symbol": "CANARY",
+    "offset": 8
+   },
+   {
+    "field": "superpolicydb_va_st",
+    "offset_symbol": "SPD_VA",
+    "offset": 32
+   },
+   {
+    "field": "pgd",
+    "offset_symbol": "PGD",
+    "offset": 40
+   },
+   {
+    "field": "uapps_start",
+    "offset_symbol": "UAPPS_START",
+    "offset": 48
+   },
+   {
+    "field": "uapps_end",
+    "offset_symbol": "UAPPS_END",
+    "offset": 56
+   },
+   {
+    "field": "mmap_rnd",
+    "offset_symbol": "MMAP_RND",
+    "offset": 64
+   }
+  ],
+  "size_symbol": "__SYSPROC_BOOTARGS_SIZE",
+  "struct": "struct __sysproc_bootargs_s (72 字节)"
+ },
+ "layout_asserts": {
+  "arch_mapi/uapi/hmasm/boot/sysproc_bootargs.h": 10
+ },
+ "declarations": {
+  "trace": 1408,
+  ".": 329,
+  "events": 171,
+  "pgtblhdlr": 152,
+  "ctrlmem": 96,
+  "capability/.": 81,
+  "track_info": 60,
+  "attributes": 17,
+  "pgstr": 16,
+  "drivers": 14,
+  "hmkit": 8,
+  "sched": 7,
+  "interrupt": 1,
+  "ipc": 1,
+  "activation": 0,
+  "einj": 0,
+  "extensions": 0,
+  "mm": 0,
+  "page_pool": 0,
+  "power": 0,
+  "timerkit": 0,
+  "ulwt": 0
+ },
+ "lsyscalls_compat": [
+  {
+   "name": "restart_syscall",
+   "nr": 0
+  },
+  {
+   "name": "exit",
+   "nr": 1
+  },
+  {
+   "name": "fork",
+   "nr": 2
+  },
+  {
+   "name": "read",
+   "nr": 3
+  },
+  {
+   "name": "write",
+   "nr": 4
+  },
+  {
+   "name": "open",
+   "nr": 5
+  },
+  {
+   "name": "close",
+   "nr": 6
+  },
+  {
+   "name": "creat",
+   "nr": 8
+  },
+  {
+   "name": "link",
+   "nr": 9
+  },
+  {
+   "name": "unlink",
+   "nr": 10
+  },
+  {
+   "name": "execve",
+   "nr": 11
+  },
+  {
+   "name": "chdir",
+   "nr": 12
+  },
+  {
+   "name": "mknod",
+   "nr": 14
+  },
+  {
+   "name": "chmod",
+   "nr": 15
+  },
+  {
+   "name": "lchown",
+   "nr": 16
+  },
+  {
+   "name": "lseek",
+   "nr": 19
+  },
+  {
+   "name": "getpid",
+   "nr": 20
+  },
+  {
+   "name": "mount",
+   "nr": 21
+  },
+  {
+   "name": "setuid",
+   "nr": 23
+  },
+  {
+   "name": "getuid",
+   "nr": 24
+  },
+  {
+   "name": "ptrace",
+   "nr": 26
+  },
+  {
+   "name": "pause",
+   "nr": 29
+  },
+  {
+   "name": "access",
+   "nr": 33
+  },
+  {
+   "name": "nice",
+   "nr": 34
+  },
+  {
+   "name": "sync",
+   "nr": 36
+  },
+  {
+   "name": "kill",
+   "nr": 37
+  },
+  {
+   "name": "rename",
+   "nr": 38
+  },
+  {
+   "name": "mkdir",
+   "nr": 39
+  },
+  {
+   "name": "rmdir",
+   "nr": 40
+  },
+  {
+   "name": "dup",
+   "nr": 41
+  },
+  {
+   "name": "pipe",
+   "nr": 42
+  },
+  {
+   "name": "times",
+   "nr": 43
+  },
+  {
+   "name": "brk",
+   "nr": 45
+  },
+  {
+   "name": "setgid",
+   "nr": 46
+  },
+  {
+   "name": "getgid",
+   "nr": 47
+  },
+  {
+   "name": "geteuid",
+   "nr": 49
+  },
+  {
+   "name": "getegid",
+   "nr": 50
+  },
+  {
+   "name": "acct",
+   "nr": 51
+  },
+  {
+   "name": "umount2",
+   "nr": 52
+  },
+  {
+   "name": "ioctl",
+   "nr": 54
+  },
+  {
+   "name": "fcntl",
+   "nr": 55
+  },
+  {
+   "name": "setpgid",
+   "nr": 57
+  },
+  {
+   "name": "umask",
+   "nr": 60
+  },
+  {
+   "name": "chroot",
+   "nr": 61
+  },
+  {
+   "name": "ustat",
+   "nr": 62
+  },
+  {
+   "name": "dup2",
+   "nr": 63
+  },
+  {
+   "name": "getppid",
+   "nr": 64
+  },
+  {
+   "name": "getpgrp",
+   "nr": 65
+  },
+  {
+   "name": "setsid",
+   "nr": 66
+  },
+  {
+   "name": "sigaction",
+   "nr": 67
+  },
+  {
+   "name": "setreuid",
+   "nr": 70
+  },
+  {
+   "name": "setregid",
+   "nr": 71
+  },
+  {
+   "name": "sigsuspend",
+   "nr": 72
+  },
+  {
+   "name": "sigpending",
+   "nr": 73
+  },
+  {
+   "name": "sethostname",
+   "nr": 74
+  },
+  {
+   "name": "setrlimit",
+   "nr": 75
+  },
+  {
+   "name": "getrusage",
+   "nr": 77
+  },
+  {
+   "name": "gettimeofday_time32",
+   "nr": 78
+  },
+  {
+   "name": "settimeofday_time32",
+   "nr": 79
+  },
+  {
+   "name": "getgroups",
+   "nr": 80
+  },
+  {
+   "name": "setgroups",
+   "nr": 81
+  },
+  {
+   "name": "symlink",
+   "nr": 83
+  },
+  {
+   "name": "readlink",
+   "nr": 85
+  },
+  {
+   "name": "uselib",
+   "nr": 86
+  },
+  {
+   "name": "swapon",
+   "nr": 87
+  },
+  {
+   "name": "reboot",
+   "nr": 88
+  },
+  {
+   "name": "munmap",
+   "nr": 91
+  },
+  {
+   "name": "truncate",
+   "nr": 92
+  },
+  {
+   "name": "ftruncate",
+   "nr": 93
+  },
+  {
+   "name": "fchmod",
+   "nr": 94
+  },
+  {
+   "name": "fchown",
+   "nr": 95
+  },
+  {
+   "name": "getpriority",
+   "nr": 96
+  },
+  {
+   "name": "setpriority",
+   "nr": 97
+  },
+  {
+   "name": "statfs",
+   "nr": 99
+  },
+  {
+   "name": "fstatfs",
+   "nr": 100
+  },
+  {
+   "name": "syslog",
+   "nr": 103
+  },
+  {
+   "name": "setitimer",
+   "nr": 104
+  },
+  {
+   "name": "getitimer",
+   "nr": 105
+  },
+  {
+   "name": "stat",
+   "nr": 106
+  },
+  {
+   "name": "lstat",
+   "nr": 107
+  },
+  {
+   "name": "fstat",
+   "nr": 108
+  },
+  {
+   "name": "vhangup",
+   "nr": 111
+  },
+  {
+   "name": "wait4",
+   "nr": 114
+  },
+  {
+   "name": "swapoff",
+   "nr": 115
+  },
+  {
+   "name": "sysinfo",
+   "nr": 116
+  },
+  {
+   "name": "fsync",
+   "nr": 118
+  },
+  {
+   "name": "sigreturn",
+   "nr": 119
+  },
+  {
+   "name": "clone",
+   "nr": 120
+  },
+  {
+   "name": "setdomainname",
+   "nr": 121
+  },
+  {
+   "name": "uname",
+   "nr": 122
+  },
+  {
+   "name": "adjtimex",
+   "nr": 124
+  },
+  {
+   "name": "mprotect",
+   "nr": 125
+  },
+  {
+   "name": "sigprocmask",
+   "nr": 126
+  },
+  {
+   "name": "init_module",
+   "nr": 128
+  },
+  {
+   "name": "delete_module",
+   "nr": 129
+  },
+  {
+   "name": "quotactl",
+   "nr": 131
+  },
+  {
+   "name": "getpgid",
+   "nr": 132
+  },
+  {
+   "name": "fchdir",
+   "nr": 133
+  },
+  {
+   "name": "bdflush",
+   "nr": 134
+  },
+  {
+   "name": "sysfs",
+   "nr": 135
+  },
+  {
+   "name": "personality",
+   "nr": 136
+  },
+  {
+   "name": "setfsuid",
+   "nr": 138
+  },
+  {
+   "name": "setfsgid",
+   "nr": 139
+  },
+  {
+   "name": "_llseek",
+   "nr": 140
+  },
+  {
+   "name": "getdents",
+   "nr": 141
+  },
+  {
+   "name": "_newselect",
+   "nr": 142
+  },
+  {
+   "name": "flock",
+   "nr": 143
+  },
+  {
+   "name": "msync",
+   "nr": 144
+  },
+  {
+   "name": "readv",
+   "nr": 145
+  },
+  {
+   "name": "writev",
+   "nr": 146
+  },
+  {
+   "name": "getsid",
+   "nr": 147
+  },
+  {
+   "name": "fdatasync",
+   "nr": 148
+  },
+  {
+   "name": "_sysctl",
+   "nr": 149
+  },
+  {
+   "name": "mlock",
+   "nr": 150
+  },
+  {
+   "name": "munlock",
+   "nr": 151
+  },
+  {
+   "name": "mlockall",
+   "nr": 152
+  },
+  {
+   "name": "munlockall",
+   "nr": 153
+  },
+  {
+   "name": "sched_setparam",
+   "nr": 154
+  },
+  {
+   "name": "sched_getparam",
+   "nr": 155
+  },
+  {
+   "name": "sched_setscheduler",
+   "nr": 156
+  },
+  {
+   "name": "sched_getscheduler",
+   "nr": 157
+  },
+  {
+   "name": "sched_yield",
+   "nr": 158
+  },
+  {
+   "name": "sched_get_priority_max",
+   "nr": 159
+  },
+  {
+   "name": "sched_get_priority_min",
+   "nr": 160
+  },
+  {
+   "name": "sched_rr_get_interval",
+   "nr": 161
+  },
+  {
+   "name": "nanosleep",
+   "nr": 162
+  },
+  {
+   "name": "mremap",
+   "nr": 163
+  },
+  {
+   "name": "setresuid",
+   "nr": 164
+  },
+  {
+   "name": "getresuid",
+   "nr": 165
+  },
+  {
+   "name": "poll",
+   "nr": 168
+  },
+  {
+   "name": "nfsservctl",
+   "nr": 169
+  },
+  {
+   "name": "setresgid",
+   "nr": 170
+  },
+  {
+   "name": "getresgid",
+   "nr": 171
+  },
+  {
+   "name": "prctl",
+   "nr": 172
+  },
+  {
+   "name": "rt_sigreturn",
+   "nr": 173
+  },
+  {
+   "name": "rt_sigaction",
+   "nr": 174
+  },
+  {
+   "name": "rt_sigprocmask",
+   "nr": 175
+  },
+  {
+   "name": "rt_sigpending",
+   "nr": 176
+  },
+  {
+   "name": "rt_sigtimedwait",
+   "nr": 177
+  },
+  {
+   "name": "rt_sigqueueinfo",
+   "nr": 178
+  },
+  {
+   "name": "rt_sigsuspend",
+   "nr": 179
+  },
+  {
+   "name": "pread64",
+   "nr": 180
+  },
+  {
+   "name": "pwrite64",
+   "nr": 181
+  },
+  {
+   "name": "chown",
+   "nr": 182
+  },
+  {
+   "name": "getcwd",
+   "nr": 183
+  },
+  {
+   "name": "capget",
+   "nr": 184
+  },
+  {
+   "name": "capset",
+   "nr": 185
+  },
+  {
+   "name": "sigaltstack",
+   "nr": 186
+  },
+  {
+   "name": "sendfile",
+   "nr": 187
+  },
+  {
+   "name": "vfork",
+   "nr": 190
+  },
+  {
+   "name": "ugetrlimit",
+   "nr": 191
+  },
+  {
+   "name": "mmap2",
+   "nr": 192
+  },
+  {
+   "name": "truncate64",
+   "nr": 193
+  },
+  {
+   "name": "ftruncate64",
+   "nr": 194
+  },
+  {
+   "name": "stat64",
+   "nr": 195
+  },
+  {
+   "name": "lstat64",
+   "nr": 196
+  },
+  {
+   "name": "fstat64",
+   "nr": 197
+  },
+  {
+   "name": "lchown32",
+   "nr": 198
+  },
+  {
+   "name": "getuid32",
+   "nr": 199
+  },
+  {
+   "name": "getgid32",
+   "nr": 200
+  },
+  {
+   "name": "geteuid32",
+   "nr": 201
+  },
+  {
+   "name": "getegid32",
+   "nr": 202
+  },
+  {
+   "name": "setreuid32",
+   "nr": 203
+  },
+  {
+   "name": "setregid32",
+   "nr": 204
+  },
+  {
+   "name": "getgroups32",
+   "nr": 205
+  },
+  {
+   "name": "setgroups32",
+   "nr": 206
+  },
+  {
+   "name": "fchown32",
+   "nr": 207
+  },
+  {
+   "name": "setresuid32",
+   "nr": 208
+  },
+  {
+   "name": "getresuid32",
+   "nr": 209
+  },
+  {
+   "name": "setresgid32",
+   "nr": 210
+  },
+  {
+   "name": "getresgid32",
+   "nr": 211
+  },
+  {
+   "name": "chown32",
+   "nr": 212
+  },
+  {
+   "name": "setuid32",
+   "nr": 213
+  },
+  {
+   "name": "setgid32",
+   "nr": 214
+  },
+  {
+   "name": "setfsuid32",
+   "nr": 215
+  },
+  {
+   "name": "setfsgid32",
+   "nr": 216
+  },
+  {
+   "name": "getdents64",
+   "nr": 217
+  },
+  {
+   "name": "pivot_root",
+   "nr": 218
+  },
+  {
+   "name": "mincore",
+   "nr": 219
+  },
+  {
+   "name": "madvise",
+   "nr": 220
+  },
+  {
+   "name": "fcntl64",
+   "nr": 221
+  },
+  {
+   "name": "gettid",
+   "nr": 224
+  },
+  {
+   "name": "readahead",
+   "nr": 225
+  },
+  {
+   "name": "setxattr",
+   "nr": 226
+  },
+  {
+   "name": "lsetxattr",
+   "nr": 227
+  },
+  {
+   "name": "fsetxattr",
+   "nr": 228
+  },
+  {
+   "name": "getxattr",
+   "nr": 229
+  },
+  {
+   "name": "lgetxattr",
+   "nr": 230
+  },
+  {
+   "name": "fgetxattr",
+   "nr": 231
+  },
+  {
+   "name": "listxattr",
+   "nr": 232
+  },
+  {
+   "name": "llistxattr",
+   "nr": 233
+  },
+  {
+   "name": "flistxattr",
+   "nr": 234
+  },
+  {
+   "name": "removexattr",
+   "nr": 235
+  },
+  {
+   "name": "lremovexattr",
+   "nr": 236
+  },
+  {
+   "name": "fremovexattr",
+   "nr": 237
+  },
+  {
+   "name": "tkill",
+   "nr": 238
+  },
+  {
+   "name": "sendfile64",
+   "nr": 239
+  },
+  {
+   "name": "futex",
+   "nr": 240
+  },
+  {
+   "name": "sched_setaffinity",
+   "nr": 241
+  },
+  {
+   "name": "sched_getaffinity",
+   "nr": 242
+  },
+  {
+   "name": "io_setup",
+   "nr": 243
+  },
+  {
+   "name": "io_destroy",
+   "nr": 244
+  },
+  {
+   "name": "io_getevents",
+   "nr": 245
+  },
+  {
+   "name": "io_submit",
+   "nr": 246
+  },
+  {
+   "name": "io_cancel",
+   "nr": 247
+  },
+  {
+   "name": "exit_group",
+   "nr": 248
+  },
+  {
+   "name": "lookup_dcookie",
+   "nr": 249
+  },
+  {
+   "name": "epoll_create",
+   "nr": 250
+  },
+  {
+   "name": "epoll_ctl",
+   "nr": 251
+  },
+  {
+   "name": "epoll_wait",
+   "nr": 252
+  },
+  {
+   "name": "remap_file_pages",
+   "nr": 253
+  },
+  {
+   "name": "set_tid_address",
+   "nr": 256
+  },
+  {
+   "name": "timer_create",
+   "nr": 257
+  },
+  {
+   "name": "timer_settime32",
+   "nr": 258
+  },
+  {
+   "name": "timer_gettime32",
+   "nr": 259
+  },
+  {
+   "name": "timer_getoverrun",
+   "nr": 260
+  },
+  {
+   "name": "timer_delete",
+   "nr": 261
+  },
+  {
+   "name": "clock_settime32",
+   "nr": 262
+  },
+  {
+   "name": "clock_gettime32",
+   "nr": 263
+  },
+  {
+   "name": "clock_getres_time32",
+   "nr": 264
+  },
+  {
+   "name": "clock_nanosleep_time32",
+   "nr": 265
+  },
+  {
+   "name": "statfs64",
+   "nr": 266
+  },
+  {
+   "name": "fstatfs64",
+   "nr": 267
+  },
+  {
+   "name": "tgkill",
+   "nr": 268
+  },
+  {
+   "name": "utimes",
+   "nr": 269
+  },
+  {
+   "name": "fadvise64_64",
+   "nr": 270
+  },
+  {
+   "name": "arm_fadvise64_64",
+   "nr": 270
+  },
+  {
+   "name": "pciconfig_iobase",
+   "nr": 271
+  },
+  {
+   "name": "pciconfig_read",
+   "nr": 272
+  },
+  {
+   "name": "pciconfig_write",
+   "nr": 273
+  },
+  {
+   "name": "mq_open",
+   "nr": 274
+  },
+  {
+   "name": "mq_unlink",
+   "nr": 275
+  },
+  {
+   "name": "mq_timedsend",
+   "nr": 276
+  },
+  {
+   "name": "mq_timedreceive",
+   "nr": 277
+  },
+  {
+   "name": "mq_notify",
+   "nr": 278
+  },
+  {
+   "name": "mq_getsetattr",
+   "nr": 279
+  },
+  {
+   "name": "waitid",
+   "nr": 280
+  },
+  {
+   "name": "socket",
+   "nr": 281
+  },
+  {
+   "name": "bind",
+   "nr": 282
+  },
+  {
+   "name": "connect",
+   "nr": 283
+  },
+  {
+   "name": "listen",
+   "nr": 284
+  },
+  {
+   "name": "accept",
+   "nr": 285
+  },
+  {
+   "name": "getsockname",
+   "nr": 286
+  },
+  {
+   "name": "getpeername",
+   "nr": 287
+  },
+  {
+   "name": "socketpair",
+   "nr": 288
+  },
+  {
+   "name": "send",
+   "nr": 289
+  },
+  {
+   "name": "sendto",
+   "nr": 290
+  },
+  {
+   "name": "recv",
+   "nr": 291
+  },
+  {
+   "name": "recvfrom",
+   "nr": 292
+  },
+  {
+   "name": "shutdown",
+   "nr": 293
+  },
+  {
+   "name": "setsockopt",
+   "nr": 294
+  },
+  {
+   "name": "getsockopt",
+   "nr": 295
+  },
+  {
+   "name": "sendmsg",
+   "nr": 296
+  },
+  {
+   "name": "recvmsg",
+   "nr": 297
+  },
+  {
+   "name": "semop",
+   "nr": 298
+  },
+  {
+   "name": "semget",
+   "nr": 299
+  },
+  {
+   "name": "semctl",
+   "nr": 300
+  },
+  {
+   "name": "msgsnd",
+   "nr": 301
+  },
+  {
+   "name": "msgrcv",
+   "nr": 302
+  },
+  {
+   "name": "msgget",
+   "nr": 303
+  },
+  {
+   "name": "msgctl",
+   "nr": 304
+  },
+  {
+   "name": "shmat",
+   "nr": 305
+  },
+  {
+   "name": "shmdt",
+   "nr": 306
+  },
+  {
+   "name": "shmget",
+   "nr": 307
+  },
+  {
+   "name": "shmctl",
+   "nr": 308
+  },
+  {
+   "name": "add_key",
+   "nr": 309
+  },
+  {
+   "name": "request_key",
+   "nr": 310
+  },
+  {
+   "name": "keyctl",
+   "nr": 311
+  },
+  {
+   "name": "semtimedop",
+   "nr": 312
+  },
+  {
+   "name": "vserver",
+   "nr": 313
+  },
+  {
+   "name": "ioprio_set",
+   "nr": 314
+  },
+  {
+   "name": "ioprio_get",
+   "nr": 315
+  },
+  {
+   "name": "inotify_init",
+   "nr": 316
+  },
+  {
+   "name": "inotify_add_watch",
+   "nr": 317
+  },
+  {
+   "name": "inotify_rm_watch",
+   "nr": 318
+  },
+  {
+   "name": "mbind",
+   "nr": 319
+  },
+  {
+   "name": "get_mempolicy",
+   "nr": 320
+  },
+  {
+   "name": "set_mempolicy",
+   "nr": 321
+  },
+  {
+   "name": "openat",
+   "nr": 322
+  },
+  {
+   "name": "mkdirat",
+   "nr": 323
+  },
+  {
+   "name": "mknodat",
+   "nr": 324
+  },
+  {
+   "name": "fchownat",
+   "nr": 325
+  },
+  {
+   "name": "futimesat",
+   "nr": 326
+  },
+  {
+   "name": "fstatat64",
+   "nr": 327
+  },
+  {
+   "name": "unlinkat",
+   "nr": 328
+  },
+  {
+   "name": "renameat",
+   "nr": 329
+  },
+  {
+   "name": "linkat",
+   "nr": 330
+  },
+  {
+   "name": "symlinkat",
+   "nr": 331
+  },
+  {
+   "name": "readlinkat",
+   "nr": 332
+  },
+  {
+   "name": "fchmodat",
+   "nr": 333
+  },
+  {
+   "name": "faccessat",
+   "nr": 334
+  },
+  {
+   "name": "pselect6",
+   "nr": 335
+  },
+  {
+   "name": "ppoll",
+   "nr": 336
+  },
+  {
+   "name": "unshare",
+   "nr": 337
+  },
+  {
+   "name": "set_robust_list",
+   "nr": 338
+  },
+  {
+   "name": "get_robust_list",
+   "nr": 339
+  },
+  {
+   "name": "splice",
+   "nr": 340
+  },
+  {
+   "name": "sync_file_range2",
+   "nr": 341
+  },
+  {
+   "name": "arm_sync_file_range",
+   "nr": 341
+  },
+  {
+   "name": "tee",
+   "nr": 342
+  },
+  {
+   "name": "vmsplice",
+   "nr": 343
+  },
+  {
+   "name": "move_pages",
+   "nr": 344
+  },
+  {
+   "name": "getcpu",
+   "nr": 345
+  },
+  {
+   "name": "epoll_pwait",
+   "nr": 346
+  },
+  {
+   "name": "kexec_load",
+   "nr": 347
+  },
+  {
+   "name": "utimensat",
+   "nr": 348
+  },
+  {
+   "name": "signalfd",
+   "nr": 349
+  },
+  {
+   "name": "timerfd_create",
+   "nr": 350
+  },
+  {
+   "name": "eventfd",
+   "nr": 351
+  },
+  {
+   "name": "fallocate",
+   "nr": 352
+  },
+  {
+   "name": "timerfd_settime32",
+   "nr": 353
+  },
+  {
+   "name": "timerfd_settime",
+   "nr": 353
+  },
+  {
+   "name": "timerfd_gettime32",
+   "nr": 354
+  },
+  {
+   "name": "timerfd_gettime",
+   "nr": 354
+  },
+  {
+   "name": "signalfd4",
+   "nr": 355
+  },
+  {
+   "name": "eventfd2",
+   "nr": 356
+  },
+  {
+   "name": "epoll_create1",
+   "nr": 357
+  },
+  {
+   "name": "dup3",
+   "nr": 358
+  },
+  {
+   "name": "pipe2",
+   "nr": 359
+  },
+  {
+   "name": "inotify_init1",
+   "nr": 360
+  },
+  {
+   "name": "preadv",
+   "nr": 361
+  },
+  {
+   "name": "pwritev",
+   "nr": 362
+  },
+  {
+   "name": "rt_tgsigqueueinfo",
+   "nr": 363
+  },
+  {
+   "name": "perf_event_open",
+   "nr": 364
+  },
+  {
+   "name": "recvmmsg",
+   "nr": 365
+  },
+  {
+   "name": "accept4",
+   "nr": 366
+  },
+  {
+   "name": "fanotify_init",
+   "nr": 367
+  },
+  {
+   "name": "fanotify_mark",
+   "nr": 368
+  },
+  {
+   "name": "prlimit64",
+   "nr": 369
+  },
+  {
+   "name": "name_to_handle_at",
+   "nr": 370
+  },
+  {
+   "name": "open_by_handle_at",
+   "nr": 371
+  },
+  {
+   "name": "clock_adjtime",
+   "nr": 372
+  },
+  {
+   "name": "syncfs",
+   "nr": 373
+  },
+  {
+   "name": "sendmmsg",
+   "nr": 374
+  },
+  {
+   "name": "setns",
+   "nr": 375
+  },
+  {
+   "name": "process_vm_readv",
+   "nr": 376
+  },
+  {
+   "name": "process_vm_writev",
+   "nr": 377
+  },
+  {
+   "name": "kcmp",
+   "nr": 378
+  },
+  {
+   "name": "finit_module",
+   "nr": 379
+  },
+  {
+   "name": "sched_setattr",
+   "nr": 380
+  },
+  {
+   "name": "sched_getattr",
+   "nr": 381
+  },
+  {
+   "name": "renameat2",
+   "nr": 382
+  },
+  {
+   "name": "seccomp",
+   "nr": 383
+  },
+  {
+   "name": "getrandom",
+   "nr": 384
+  },
+  {
+   "name": "memfd_create",
+   "nr": 385
+  },
+  {
+   "name": "bpf",
+   "nr": 386
+  },
+  {
+   "name": "execveat",
+   "nr": 387
+  },
+  {
+   "name": "userfaultfd",
+   "nr": 388
+  },
+  {
+   "name": "membarrier",
+   "nr": 389
+  },
+  {
+   "name": "mlock2",
+   "nr": 390
+  },
+  {
+   "name": "copy_file_range",
+   "nr": 391
+  },
+  {
+   "name": "preadv2",
+   "nr": 392
+  },
+  {
+   "name": "pwritev2",
+   "nr": 393
+  },
+  {
+   "name": "pkey_mprotect",
+   "nr": 394
+  },
+  {
+   "name": "pkey_alloc",
+   "nr": 395
+  },
+  {
+   "name": "pkey_free",
+   "nr": 396
+  },
+  {
+   "name": "statx",
+   "nr": 397
+  },
+  {
+   "name": "rseq",
+   "nr": 398
+  },
+  {
+   "name": "io_pgetevents",
+   "nr": 399
+  },
+  {
+   "name": "migrate_pages",
+   "nr": 400
+  },
+  {
+   "name": "kexec_file_load",
+   "nr": 401
+  },
+  {
+   "name": "pidfd_send_signal",
+   "nr": 424
+  },
+  {
+   "name": "io_uring_setup",
+   "nr": 425
+  },
+  {
+   "name": "io_uring_enter",
+   "nr": 426
+  },
+  {
+   "name": "io_uring_register",
+   "nr": 427
+  },
+  {
+   "name": "open_tree",
+   "nr": 428
+  },
+  {
+   "name": "move_mount",
+   "nr": 429
+  },
+  {
+   "name": "fsopen",
+   "nr": 430
+  },
+  {
+   "name": "fsconfig",
+   "nr": 431
+  },
+  {
+   "name": "fsmount",
+   "nr": 432
+  },
+  {
+   "name": "fspick",
+   "nr": 433
+  },
+  {
+   "name": "pidfd_open",
+   "nr": 434
+  },
+  {
+   "name": "clone3",
+   "nr": 435
+  },
+  {
+   "name": "close_range",
+   "nr": 436
+  },
+  {
+   "name": "openat2",
+   "nr": 437
+  },
+  {
+   "name": "pidfd_getfd",
+   "nr": 438
+  },
+  {
+   "name": "faccessat2",
+   "nr": 439
+  },
+  {
+   "name": "process_madvise",
+   "nr": 440
+  },
+  {
+   "name": "epoll_pwait2",
+   "nr": 441
+  },
+  {
+   "name": "mount_setattr",
+   "nr": 442
+  },
+  {
+   "name": "landlock_create_ruleset",
+   "nr": 444
+  },
+  {
+   "name": "landlock_add_rule",
+   "nr": 445
+  },
+  {
+   "name": "landlock_restrict_self",
+   "nr": 446
+  },
+  {
+   "name": "cpu_getnum",
+   "nr": 447
+  },
+  {
+   "name": "mq_close",
+   "nr": 448
+  },
+  {
+   "name": "set_thread_area",
+   "nr": 449
+  },
+  {
+   "name": "ext_wait",
+   "nr": 453
+  },
+  {
+   "name": "ext_ctrl",
+   "nr": 454
+  },
+  {
+   "name": "proc_check_regs",
+   "nr": 455
+  },
+  {
+   "name": "process_spawn",
+   "nr": 459
+  },
+  {
+   "name": "sched_get_avail_prio_max",
+   "nr": 461
+  },
+  {
+   "name": "dopra_tick",
+   "nr": 500
+  }
+ ]
+}

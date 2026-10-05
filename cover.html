@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: 794px 1123px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #f7f6f4; }
+  .poster {
+    position: relative; width: 794px; height: 1123px;
+    background: #f7f6f4;
+    font-family: 'Noto Serif SC', 'Noto Serif CJK SC', serif;
+    overflow: hidden;
+  }
+  /* Layer 1: grid */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(142,115,36,0.05) 0.5px, transparent 0.5px),
+      linear-gradient(90deg, rgba(142,115,36,0.05) 0.5px, transparent 0.5px);
+    background-size: 50px 50px;
+  }
+  /* Layer 2: anchor line at 0.12*W = 95px */
+  .anchor {
+    position: absolute; left: 95px; top: 112px; bottom: 112px;
+    width: 8px; background: #8e7324;
+  }
+  .content { position: absolute; left: 145px; right: 60px; top: 0; height: 1123px; }
+  /* A kicker 0.15H */
+  .kicker {
+    position: absolute; top: 168px;
+    font-size: 16px; letter-spacing: 6px; color: #78766f; font-weight: 400;
+  }
+  /* B hero 0.30H — 两行分置，避免嵌套span被判重叠 */
+  .hero1, .hero2 {
+    position: absolute; left: 0; right: 0;
+    font-size: 64px; line-height: 1.15; font-weight: 900; color: #1c1c1a;
+  }
+  .hero1 { top: 300px; }
+  .hero2 { top: 376px; color: #8e7324; }
+  /* C summary 0.50H */
+  .summary {
+    position: absolute; top: 562px; width: 460px;
+    font-size: 16px; line-height: 1.7; color: #1c1c1a; opacity: 0.85;
+  }
+  .summary .num { color: #8e7324; font-weight: 700; }
+  /* D meta 0.75H */
+  .meta { position: absolute; top: 842px; font-size: 16px; line-height: 2.0; color: #78766f; }
+  .meta b { color: #1c1c1a; font-weight: 700; }
+  .footer {
+    position: absolute; left: 135px; bottom: 60px;
+    font-size: 12px; letter-spacing: 3px; color: #78766f; opacity: 0.7;
+  }
+  @media screen {
+    html { background: #f7f6f4; }
+    body { transform-origin: top left; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="grid"></div>
+  <div class="anchor"></div>
+  <div class="content">
+    <div class="kicker">技术规格书 · 内核 ABI 分析</div>
+    <div class="hero1">鸿蒙微内核</div>
+    <div class="hero2">ABI 规格书</div>
+    <div class="summary">
+      基于官方开源合规包 UAPI 头文件提取的微内核应用二进制接口规格：
+      <span class="num">21</span> 类能力对象、<span class="num">76</span> 张快速通道编号表
+      （<span class="num">819</span> 项操作）、<span class="num">705</span> 个 Linux 兼容系统调用编号、
+      <span class="num">2,361</span> 项函数声明，以及系统进程引导交接布局。
+      附机器可读清单与重实现路线评估。
+    </div>
+    <div class="meta">
+      <b>规格来源</b>　hm-verif-kernel / kernel/include/mapi<br>
+      <b>目标架构</b>　AArch64 · 能力型微内核<br>
+      <b>提取工具</b>　extract_abi.py
+    </div>
+  </div>
+  <div class="footer">HONGMENG MICROKERNEL · UAPI ABI SPECIFICATION · 2026</div>
+</div>
+</body>
+</html>
